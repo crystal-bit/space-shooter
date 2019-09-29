@@ -6,7 +6,7 @@ It's intended for people who want to learn Godot game programming in a collabora
 
 ## How can I contribute?
 
-Take a look at the open issues.  
+Take a look at the open issues: https://github.com/crystal-bit/space-shooter/issues  
 Did you find something that you would like to work on? Great! Then keep reading...
 
 ### Please follow these simple rules ⤵️
@@ -22,11 +22,13 @@ I hope these rules will help everyone having an enjoyable Hacktoberfest, avoidin
 
 🇮🇹 Non preoccuparti, aiutati con Google Translate e prova ad esprimere il concetto. Se proprio non riesci, scrivi in Italiano ma ricorda che sapere comunicare in Inglese è una skill importante da avere per lavorare nell'industria del software e dei videogame.
 
-🇬🇧 / 🇺🇸 ...
+🇬🇧 / 🇺🇸 ... (see https://github.com/crystal-bit/space-shooter/issues/1)
 
-🇪🇸 ...
+🇪🇸 ... (see https://github.com/crystal-bit/space-shooter/issues/2)
+
+*Another flag* ... (see https://github.com/crystal-bit/space-shooter/issues/3)
 
 # License
 
 - **Code**: GPLv3
-- **Graphics Assets**: see [warped-city/public-license.txt](./Assets/warped city files/public-license.txt)
+- **Graphics Assets**: see [warped-city/public-license.txt](https://github.com/crystal-bit/space-shooter/blob/master/Assets/warped%20city%20files/public-license.txt)
