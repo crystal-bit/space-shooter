@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/ScrollingBuildings/ScrollingBuildings.gd" type="Script" id=1]
+[ext_resource path="res://Assets/warped city files/environment/background/near-buildings-bg.png" type="Texture" id=2]
+
+
+[node name="ScrollingBuilding" type="Node2D"]
+position = Vector2( 0, 182 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+buildingTexture = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="Sprite"]
+rect = Rect2( 0, 0, 493, 209 )
+

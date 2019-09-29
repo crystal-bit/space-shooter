@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/ScrollingBackground/ScrollingBackground.gd" type="Script" id=1]
+[ext_resource path="res://Assets/warped city files/environment/background/skyline-a.png" type="Texture" id=2]
+[ext_resource path="res://Assets/warped city files/environment/background/skyline-b.png" type="Texture" id=3]
+
+[node name="ScrollingBackground" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+duration = 2
+
+[node name="SkylineA" type="Sprite" parent="."]
+editor/display_folded = true
+scale = Vector2( 3.16667, 3.16667 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Tween" type="Tween" parent="SkylineA"]
+
+[node name="SkylineMoon" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 405.333, 0 )
+scale = Vector2( 3.16667, 3.16667 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Tween" type="Tween" parent="SkylineMoon"]
+
