@@ -31,7 +31,7 @@ I hope these rules will help everyone having an enjoyable Hacktoberfest, avoidin
 
 🇮🇹 Non preoccuparti, aiutati con Google Translate e prova ad esprimere il concetto. Se proprio non riesci, scrivi in Italiano ma ricorda che sapere comunicare in Inglese è una skill importante da avere per lavorare nell'industria del software e dei videogame.
 
-🇬🇧 / 🇺🇸 ... (see https://github.com/crystal-bit/space-shooter/issues/1)
+🇬🇧 / 🇺🇸 Don't worry, use Google Translate for help and try to express the concept. If you really can't, write in your language, but remember that knowing how to communicate in English is an important skill to have for working in the software and video game industry.
 
 🇪🇸 ... (see https://github.com/crystal-bit/space-shooter/issues/2)
 
