@@ -3,8 +3,6 @@
 [ext_resource path="res://Scenes/MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/MainMenu/Button/Button.tscn" type="PackedScene" id=2]
 
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "MenuAppear"
 tracks/0/type = "method"
@@ -63,21 +61,23 @@ anchor_bottom = 1.0
 custom_constants/separation = 16
 
 [node name="StartGame" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_right = 1360.0
 buttonText = "Start Game"
 
 [node name="Options" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 56.0
+margin_right = 1360.0
 margin_bottom = 96.0
 buttonText = "Options"
 
 [node name="Exit" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 112.0
+margin_right = 1360.0
 margin_bottom = 152.0
 buttonText = "Exit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/MenuAppear = SubResource( 1 )
-
 [connection signal="pressed" from="VBoxContainer/StartGame" to="." method="_on_StartGame_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
