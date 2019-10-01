@@ -26,6 +26,7 @@ func _on_ScrollingBackground_transition_updated(completionPercentage, _moonXPos)
 
 func _on_StartGame_pressed():
 	emit_signal("startGameClicked")
+	get_tree().change_scene("res://space-shooter/Scenes/Gameplay/Level1")
 
 func _on_Options_pressed():
 	emit_signal("optionsButtonClicked")
