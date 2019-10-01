@@ -1,5 +1,11 @@
 # Space Shooter
 
+<p align="center">
+  <img width="60%" src="https://github.com/crystal-bit/into-the-breach-opening/raw/master/itb.gif">
+</p>
+
+<blockquote> Intro scene here: https://github.com/crystal-bit/into-the-breach-opening</blockquote>
+
 *Space Shooter* is a shoot'em-up game created for the [Hacktoberfest 2019](https://hacktoberfest.digitalocean.com/).  
 
 It's intended for people who want to learn Godot game programming in a collaborative way.
