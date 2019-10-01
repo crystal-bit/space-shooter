@@ -1,6 +1,6 @@
 extends Node
 
-var ID : String = ""
+var ID = ""
 var inputKey
 # TO BE CHANGED to a enum
 export (String, "key", "mouseButton", "controllerButton") var inputType
@@ -18,7 +18,7 @@ func _input(ev):
 	if inputKey != null:
 		match inputType:
 			"key":
-				if ev is InputEventKey:
+				if ((ev is InputEventKey) and (ev.scancode == inputKey)):
 					if isCurrentlyPressed and !ev.pressed:
 						emit_signal("isReleased")
 					elif !isCurrentlyPressed and ev.pressed:
