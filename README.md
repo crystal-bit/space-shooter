@@ -33,7 +33,7 @@ I hope these rules will help everyone having an enjoyable Hacktoberfest, avoidin
 
 🇬🇧 / 🇺🇸 Don't worry, use Google Translate for help and try to express the concept. If you really can't, write in your language, but remember that knowing how to communicate in English is an important skill to have for working in the software and video game industry.
 
-🇪🇸 No se preocupe, ayúdese con Google Translate e intente expresar el concepto. Si realmente no puede, escriba en italiano, pero recuerde que saber cómo comunicarse en inglés es una habilidad importante para trabajar en la industria del software y los videojuegos.
+🇪🇸 No se preocupe, ayúdese con Google Translate e intente expresar el concepto. Si realmente no puede, escriba en tu idioma, pero recuerde que saber cómo comunicarse en inglés es una habilidad importante para trabajar en la industria del software y los videojuegos.
 
 🇧🇷 Não se preocupe, use o Google Tradutor para ajudá-lo e tente explicar seu conceito. Se você realmente não conseguir, escreva no seu idioma, mas lembre-se que aprender a se comunicar em inglês é uma habilidade importante para trabalhar na industria de software e video games.
 
