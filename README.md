@@ -37,6 +37,16 @@ I hope these rules will help everyone having an enjoyable Hacktoberfest, avoidin
 
 *Another flag* ... (see https://github.com/crystal-bit/space-shooter/issues/3)
 
+## _"No hablo Ingles"_ (_"I don't speak English!"_)
+
+🇮🇹  No se preocupe, ayúdese con Google Translate e intente expresar el concepto. Si realmente no puede, escriba en italiano, pero recuerde que saber cómo comunicarse en inglés es una habilidad importante para trabajar en la industria del software y los videojuegos.
+
+🇬🇧 / 🇺🇸 ... (Mire https://github.com/crystal-bit/space-shooter/issues/1)
+
+🇪🇸 ... (Mire https://github.com/crystal-bit/space-shooter/issues/2)
+
+*Otra Bandera* ... (Mire https://github.com/crystal-bit/space-shooter/issues/3)
+
 # License
 
 - **Code**: GPLv3
