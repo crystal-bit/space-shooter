@@ -35,6 +35,8 @@ I hope these rules will help everyone having an enjoyable Hacktoberfest, avoidin
 
 🇪🇸 No se preocupe, ayúdese con Google Translate e intente expresar el concepto. Si realmente no puede, escriba en italiano, pero recuerde que saber cómo comunicarse en inglés es una habilidad importante para trabajar en la industria del software y los videojuegos.
 
+🇧r Não se preocupe, ajude utilizando o Google Tradutor e tente expressar o conceito. Se realmente não conseguir, escreva em sua linguagem, mas lembre-se que saber como se comunicar em Inglês é uma habilidade importante para trabalhar na indústria de software e jogos.
+
 *Another flag* ... (see https://github.com/crystal-bit/space-shooter/issues/3)
 
 # License
