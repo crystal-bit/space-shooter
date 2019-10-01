@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export (PackedScene) var Command_Reference = load("res://Scenes/Command/Command.tscn")
 
-var speed : float = 200
+export (float) var speed : float = 200
 
 func _ready():
 	var W_Button = Command_Reference.instance()

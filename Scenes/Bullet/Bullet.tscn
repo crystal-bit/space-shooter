@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/warped city files/sprites/misc/shot-hit/shot-hit-3.png" type="Texture" id=1]
+[ext_resource path="res://Assets/warped city files/sprites/misc/shot-hit/shot-hit-1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/warped city files/sprites/misc/shot-hit/shot-hit-2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/warped city files/sprites/misc/shot/shot-1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/warped city files/sprites/misc/shot/shot-2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/warped city files/sprites/misc/shot/shot-3.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Hitting"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 17.7531, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Moving"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ]
+}
+
+[node name="Bullet" type="Area2D"]
+
+[node name="Image" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+anims/Hitting = SubResource( 1 )
+anims/Moving = SubResource( 2 )
