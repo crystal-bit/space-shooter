@@ -1,4 +1,4 @@
-extends Sprite
+extends Node2D
 
 # Enemy Attributes:
 # var HP = 10
