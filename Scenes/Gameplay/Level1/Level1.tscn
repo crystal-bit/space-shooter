@@ -64,6 +64,7 @@ anims/move = SubResource( 1 )
 [node name="ScoreHandler" parent="." instance=ExtResource( 4 )]
 
 [node name="Score" type="Label" parent="."]
+editor/display_folded = true
 margin_left = 1114.0
 margin_top = 70.0
 margin_right = 1261.0
@@ -94,3 +95,4 @@ margin_top = 430.0
 margin_right = 1180.0
 margin_bottom = 510.0
 text = "Reset Multiplier"
+

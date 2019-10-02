@@ -43,3 +43,4 @@ hframes = 4
 anims/idle = SubResource( 1 )
 
 [node name="Inputs" type="Node" parent="."]
+

@@ -4,6 +4,7 @@ export (PackedScene) var Command_Reference = load("res://Scenes/Command/Command.
 
 export (float) var speed : float = 200
 
+
 func _ready():
 	var W_Button = Command_Reference.instance()
 	W_Button.Command("W", KEY_W, "key")
@@ -21,8 +22,10 @@ func _ready():
 	D_Button.Command("D", KEY_D, "key")
 	$Inputs.add_child(D_Button)
 
+
 func _physics_process(d):
 	HandleMovement(d)
+
 
 func HandleMovement(d):
 	var direction = Vector2(0, 0)
@@ -36,6 +39,7 @@ func HandleMovement(d):
 		direction.x =+ 1
 	
 	var collider = move_and_collide(direction * speed * d)
+
 
 func getCommand(ID):
 	for cmd in $Inputs.get_children():

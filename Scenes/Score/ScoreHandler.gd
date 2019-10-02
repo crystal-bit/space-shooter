@@ -1,15 +1,17 @@
 extends Node
 
-var currentScore = 0
+signal scoreChanged(score)
+signal multiplierChanged(multiplier)
 
+var currentScore = 0
 var multiplier = 1
 
-#can be either 0 (0-5 sec), 1 (5-10 sec), 2 (10-30)
+# can be either 0 (0-5 sec), 1 (5-10 sec), 2 (10-30)
 enum eMultiplierLevel {LEVEL_0 = 0, LEVEL_1 = 1, LEVEL_2 = 2}
 var multiplierLevel = eMultiplierLevel.LEVEL_0
 
+
 func _ready():
-	
 	$ScoreTimer.connect("timeout", self, "addTimePoints")
 	$ScoreTimer.wait_time = 5
 	$MultiplierTimer.connect("timeout", self, "upgradeMultiplier")
@@ -18,16 +20,15 @@ func _ready():
 	startTimers()
 
 
-signal scoreChanged(score)
-signal multiplierChanged(multiplier)
-
 func addScore(points):
 	currentScore += multiplier * points
 	emit_signal("scoreChanged", currentScore)
 
+
 func changeMultiplier(newMultiplier):
 	multiplier = newMultiplier
 	emit_signal("multiplierChanged", multiplier)
+
 
 func getScore():
 	return currentScore
@@ -36,6 +37,7 @@ func getScore():
 func startTimers():
 	$ScoreTimer.start()
 	$MultiplierTimer.start()
+
 
 #add a boolean to check if the player is being hit in case the func gets called in the same time the player gets hurt
 func upgradeMultiplier():
@@ -56,12 +58,14 @@ func upgradeMultiplier():
 			$MultiplierTimer.stop()
 			changeMultiplier(5)
 
+
 func resetMultiplier():
 	multiplierLevel = eMultiplierLevel.LEVEL_0
 	changeMultiplier(1)
 	$MultiplierTimer.stop()
 	$MultiplierTimer.wait_time = 5
 	$MultiplierTimer.start()
+
 
 func addTimePoints():
 	addScore(5)
