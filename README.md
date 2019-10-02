@@ -22,6 +22,22 @@ Did you find something that you would like to work on? Great! Then keep reading.
 
 Please follow [the official GDScript style guide](http://docs.godotengine.org/en/latest/getting_started/scripting/gdscript/gdscript_styleguide.html) when making pull requests.
 
+For the order of variables, signals, functions, please follow this order (simplified from [GDQuest's guidelines](https://www.gdquest.com/open-source/guidelines/godot-gdscript/#in-short)):
+
+```
+01. Extends and class_name
+02. """docstring"""
+
+03. Signals
+04. Node dependencies
+05. Constants
+06. Variables (properties)
+
+08. Built-in virtual callbacks (eg: _ready, _input, _process, ...) 
+09. Signal callbacks (eg: on_button_pressed, on_area_entered, on_body_entered, ...)
+10. Methods
+```
+
 Why? Well, everyone has his own preference when writing code, but when collaborating with others it's good to respect a common style. Since Space Shooter is a learning project, I think the best choice is to follow the official style guide.
 
 
