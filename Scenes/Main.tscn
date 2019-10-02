@@ -98,10 +98,10 @@ scale = Vector2( 4, 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Spaceship"]
 anims/spaceshipArrives = SubResource( 1 )
-[connection signal="transition_updated" from="ScrollingBackground" to="ScrollingBuildings" method="_on_ScrollingBackground_transition_updated"]
-[connection signal="transition_updated" from="ScrollingBackground" to="ScrollingFarBuildings" method="_on_ScrollingBackground_transition_updated"]
-[connection signal="transition_updated" from="ScrollingBackground" to="." method="_on_ScrollingBackground_transition_updated"]
 [connection signal="transition_updated" from="ScrollingBackground" to="UILayer/MainButtons" method="_on_ScrollingBackground_transition_updated"]
+[connection signal="transition_updated" from="ScrollingBackground" to="." method="_on_ScrollingBackground_transition_updated"]
+[connection signal="transition_updated" from="ScrollingBackground" to="ScrollingFarBuildings" method="_on_ScrollingBackground_transition_updated"]
+[connection signal="transition_updated" from="ScrollingBackground" to="ScrollingBuildings" method="_on_ScrollingBackground_transition_updated"]
 [connection signal="optionsButtonClicked" from="UILayer/MainButtons" to="UILayer" method="_on_MainButtons_optionsButtonClicked"]
 [connection signal="startGameClicked" from="UILayer/MainButtons" to="." method="_on_MainButtons_startGameClicked"]
 [connection signal="animation_finished" from="Spaceship/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

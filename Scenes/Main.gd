@@ -12,4 +12,4 @@ func _on_ScrollingBackground_transition_updated(completionPercentage, _moonXPos)
 		
 		
 func _on_MainButtons_startGameClicked():
-	get_node("/root/SceneManager").goto_scene("res://Scenes/Gameplay/Level1/Level1.tscn")
+	SceneManager.goto_scene("res://Scenes/Gameplay/Level1/Level1.tscn")
