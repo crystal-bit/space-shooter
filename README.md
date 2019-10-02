@@ -59,6 +59,8 @@ Why? Well, everyone has his own preference when writing code, but when collabora
 
 🇧🇷 Não se preocupe, use o Google Tradutor para ajudá-lo e tente explicar seu conceito. Se você realmente não conseguir, escreva no seu idioma, mas lembre-se que aprender a se comunicar em inglês é uma habilidade importante para trabalhar na industria de software e video games.
 
+🇹🇷 Dert etmeyin, Google Translate'ten yardım alın ve fikrinizi ifade etmeye çalışın. Yine de başarılı olamıyorsanız kendi dilinizde yazın, ama İngilizce iletişim kurabilmenin video oyunu ve yazılım endüstrisinde önemli bir beceri olduğunu unutmayın.
+
 *Another flag* ... (see https://github.com/crystal-bit/space-shooter/issues/3)
 
 # License
