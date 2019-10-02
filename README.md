@@ -18,6 +18,13 @@ In two ways:
 1. **Working on an issue**: take a look at the open issues: https://github.com/crystal-bit/space-shooter/issues  
 Did you find something that you would like to work on? Great! Then keep reading...
 
+## Code style
+
+Please follow [the official GDScript style guide](http://docs.godotengine.org/en/latest/getting_started/scripting/gdscript/gdscript_styleguide.html) when making pull requests.
+
+Why? Well, everyone has his own preference when writing code, but when collaborating with others it's good to respect a common style. Since Space Shooter is a learning project, I think the best choice is to follow the official style guide.
+
+
 ### Please follow these simple rules ⤵️
 
 1. ➡️ **Write a short message** in the issue itself to notify others that you are working on it.
