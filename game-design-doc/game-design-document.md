@@ -44,17 +44,32 @@ Your objective is to survive and destroy as much enemies as you can to get point
 
 ## Spaceship movement
 
+The spaceship can move in all directions (with a joystick or WASD) but it can't go outside the boundary of the screen.
+
 ## Fire bullet (no powerup)
+
+If the player presses down or holds the fire key, a bullet will spawn in the spaceship position and will move to the direction it's facing.
 
 ## Spawn powerup
 
+After an enemy has been killed, it has a x% chance of spawning a powerup.
+The powerup slowly falls towards the scrolling direction and disappears after n seconds.
+
 ## Collect powerup
 
+The player can collect a powerup simply by touching it before it disappears.
+
 ## Fire bullet - Powerup1
+
+With this powerup, the bullet is larger and deals more damage to enemies.
 
 ## Fire bullet - Powerup2
 
 ## Enemy spawn
+
+The enmies come in waves from the edge of the screen.
+
+There are different wave movements and formations, randomly selected at the start of each one.
 
 ## Enemy fire bullet
 
