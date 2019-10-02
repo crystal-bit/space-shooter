@@ -88,6 +88,7 @@ margin_bottom = 75.0
 visible = false
 
 [node name="Spaceship" parent="." instance=ExtResource( 8 )]
+editor/display_folded = true
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 300, 126 )
 scale = Vector2( 4, 4 )
