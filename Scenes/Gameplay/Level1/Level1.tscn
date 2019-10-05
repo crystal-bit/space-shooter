@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Gameplay/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Spaceship/Spaceship.tscn" type="PackedScene" id=2]
@@ -32,6 +32,7 @@ position = Vector2( 204.327, 350.195 )
 scale = Vector2( 1.6, 1.6 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+editor/display_folded = true
 scale = Vector2( 3.2, 3.2 )
 transform = Transform2D( 3.2, 0, 0, 3.2, 0, 0 )
 
@@ -98,6 +99,8 @@ text = "Reset Multiplier"
 
 [node name="EnemySpawner" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1090.63, 89.2953 )
+
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
+
