@@ -7,15 +7,21 @@
 - [Mechanics](#mechanics)
   - [Spaceship movement](#spaceship-movement)
   - [Fire bullet (no powerup)](#fire-bullet-no-powerup)
+  - [Bullet collision with enemy](#bullet-collision-with-enemy)
+  - [Spaceship Life](#spaceship-life)
+  - [Gameover](#gameover)
+  - [Spaceship - receive damage](#spaceship---receive-damage)
   - [Spawn powerup](#spawn-powerup)
   - [Collect powerup](#collect-powerup)
   - [Fire bullet - Powerup1](#fire-bullet---powerup1)
-  - [Fire bullet - Powerup2](#fire-bullet---powerup2)
   - [Enemy spawn](#enemy-spawn)
-  - [Enemy fire bullet](#enemy-fire-bullet)
+  - [Enemy receives damage](#enemy-receives-damage)
   - [Enemy defeated](#enemy-defeated)
+  - [Enemy 1](#enemy-1)
+    - [Spawn](#spawn)
+    - [Movement](#movement)
+    - [Attack: Fire Bullet](#attack-fire-bullet)
   - [Points](#points)
-  - [Game over](#game-over)
 - [Game Entities Statistics](#game-entities-statistics)
   - [Player spaceship](#player-spaceship)
   - [Bullets damage](#bullets-damage)
@@ -50,30 +56,89 @@ The spaceship can move in all directions (with a joystick or WASD) but it can't 
 
 If the player presses down or holds the fire key, a bullet will spawn in the spaceship position and will move to the direction it's facing.
 
+## Bullet collision with enemy
+
+If one enemy collides with the bullet:
+
+- the bullet disappears
+- the enemy receives a damage (see [Enemy receives damage](#enemy-receives-damage))
+
+## Spaceship Life
+
+The player starts with 3 lives (they need to be always visible during gameplay in the GUI).
+
+If the player loses all the lives, the lose the game.  
+See [Gameover](#gameover).
+
+## Gameover
+
+TODO
+
+## Spaceship - receive damage
+
+The player receives damage on:
+
+- enemy collision
+- enemy bullet collision
+
+ ![Spaceship state diagram](./img/spaceship-states-diagram.png)
+
+If the spaceship is in `Idle` state and it takes damage:
+
+- it loses one life
+- it goes immediately into `Recovery` state
+
+When in `Recovery` state:
+
+- the spaceship ignores all the collisions with objects that cause collisions
+- the spaceship graphic flashes continuosly (modulation to absolute white)
+- a timer is started and after `recovery_time` seconds (eg: 3 seconds), the spaceship transition into the `Idle` state
+
 ## Spawn powerup
 
 After an enemy has been killed, it has a x% chance of spawning a powerup.
-The powerup slowly falls towards the scrolling direction and disappears after n seconds.
+
+The powerup slowly moves towards the scrolling direction and disappears (it's destroyed) when it goes out of the screen.
 
 ## Collect powerup
 
-The player can collect a powerup simply by touching it before it disappears.
+The player can collect a powerup simply by touching it.
 
 ## Fire bullet - Powerup1
 
 With this powerup, the bullet is larger and deals more damage to enemies.
 
-## Fire bullet - Powerup2
-
 ## Enemy spawn
 
-The enmies come in waves from the edge of the screen.
+Enemies can spawn in different ways. The type of spawn depdens on the enemy.
 
 There are different wave movements and formations, randomly selected at the start of each one.
 
-## Enemy fire bullet
+TODO: give more details
+
+## Enemy receives damage
+
+- The enemy sprite flashes to white quickly one time (eg: take a look at Cuphead for reference: https://youtu.be/MivqpCN-AsE?t=108)
+- The enemy loses HP the depending on the bullet strenght (see [Bullets damage](#bullets-damage))
+- If enemy's HP are less or equalt to 0, the enemy is defeated (see [Enemy defeated](#enemy-defeated))
 
 ## Enemy defeated
+
+TODO
+
+## Enemy 1
+
+### Spawn
+
+TODO
+
+### Movement
+
+TODO
+
+### Attack: Fire Bullet
+
+TODO
 
 ## Points
 
@@ -84,8 +149,6 @@ There are different wave movements and formations, randomly selected at the star
 - If you don't take any damage for 10 seconds, you get a 4x multiplier for every obtained score
 - If you don't take any damage for 30 seconds, you get a 5x multiplier for every obtained score
   
-## Game over
-
 # Game Entities Statistics
 
 ## Player spaceship
