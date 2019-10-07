@@ -8,6 +8,9 @@ func _ready():
 	$AddPoints.connect("pressed", self, "addShipDestroyedPoints")
 	$ResetMultiplier.connect("pressed", $ScoreHandler, "resetMultiplier")
 	set_spawn_position()
+	#enable physics process on the spaceship
+	#once the level is ready
+	$Spaceship.set_physics_process(true)
 
 
 func addShipDestroyedPoints():

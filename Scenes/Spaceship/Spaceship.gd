@@ -34,6 +34,9 @@ func _ready():
 	var J_Button = Command_Reference.instance()
 	J_Button.Command("J", KEY_J, "key")
 	$Inputs.add_child(J_Button)	
+	#disable physics process after creation
+	#so user can't move the spaceship
+	self.set_physics_process(false)
 
 func _physics_process(d):
 	HandleMovement(d)
