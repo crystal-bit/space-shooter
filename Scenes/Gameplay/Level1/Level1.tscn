@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Gameplay/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Spaceship/Spaceship.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/warped city files/environment/background/skyline-a.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Score/ScoreHandler.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Enemies/EnemySpawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/gameplay_music.ogg" type="AudioStream" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "move"
@@ -35,7 +37,6 @@ scale = Vector2( 3.2, 3.2 )
 transform = Transform2D( 3.2, 0, 0, 3.2, 0, 0 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-editor/display_folded = true
 motion_mirroring = Vector2( 512, 0 )
 
 [node name="SkylineA" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
@@ -95,4 +96,11 @@ margin_top = 430.0
 margin_right = 1180.0
 margin_bottom = 510.0
 text = "Reset Multiplier"
+
+[node name="EnemySpawner" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1090.63, 89.2953 )
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
 
