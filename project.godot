@@ -19,10 +19,6 @@ config/name="Space Shooter"
 run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-SceneManager="*res://Globals/SceneManager/SceneManager.gd"
-
 [display]
 
 window/size/width=1360

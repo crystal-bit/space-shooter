@@ -43,8 +43,5 @@ hframes = 4
 anims/idle = SubResource( 1 )
 
 [node name="Inputs" type="Node" parent="."]
-<<<<<<< HEAD
 
 [node name="Bullets" type="Node" parent="."]
-=======
->>>>>>> EnemySpawner
