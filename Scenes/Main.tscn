@@ -94,11 +94,16 @@ scale = Vector2( 4, 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Spaceship"]
 anims/spaceshipArrives = SubResource( 1 )
+<<<<<<< HEAD
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 autoplay = true
 
+=======
+[connection signal="transition_updated" from="ScrollingBackground" to="ScrollingBuildings" method="_on_ScrollingBackground_transition_updated"]
+[connection signal="transition_updated" from="ScrollingBackground" to="ScrollingFarBuildings" method="_on_ScrollingBackground_transition_updated"]
+>>>>>>> EnemySpawner
 [connection signal="transition_updated" from="ScrollingBackground" to="." method="_on_ScrollingBackground_transition_updated"]
 [connection signal="transition_updated" from="ScrollingBackground" to="ScrollingBuildings" method="_on_ScrollingBackground_transition_updated"]
 [connection signal="transition_updated" from="ScrollingBackground" to="UILayer/MainButtons" method="_on_ScrollingBackground_transition_updated"]
