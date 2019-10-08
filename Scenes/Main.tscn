@@ -73,7 +73,6 @@ speed = 0.9
 visibleHeightPercentage = 0.65
 
 [node name="UILayer" type="CanvasLayer" parent="."]
-editor/display_folded = true
 script = ExtResource( 5 )
 
 [node name="MainButtons" parent="UILayer" instance=ExtResource( 6 )]
