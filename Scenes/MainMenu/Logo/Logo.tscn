@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/logos/logo.png" type="Texture" id=1]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+[sub_resource type="Animation" id=2]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.1, 2.9 ),
+"transitions": PoolRealArray( 7.21, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+
+[node name="Logo" type="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -677.0
+margin_right = 678.0
+margin_bottom = 760.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.0333333 )
+material = SubResource( 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -330.0
+margin_top = -270.0
+margin_right = 330.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 0.0322581, 0.0322581 )
+rect_pivot_offset = Vector2( 324.969, 132.617 )
+rect_clip_content = true
+texture = ExtResource( 1 )
+expand = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Logo"
+anims/Logo = SubResource( 2 )
