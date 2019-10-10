@@ -38,7 +38,7 @@ Year 322X. Major cities are now garbage dumps, the scum of the earth rules in ev
 The "way out", as someone called it, is to join the Military Artificial Combat Simulation program (also known as MACS) to become one of the MAC(the name of the vehicles) pilots who are fighting for the city faction on the WARG, the brutal war simulator that decide the fate of entire populations. 
 You? Well you are one of them, just joined the program and ready to prove yourself on the field. Who knows what this new life will show to you, time will tell. 
 (we could change the name of the game in "MAC FIGHTER") 
-
+###### Old description 
 The war is coming and everyone is trying to become a *space shooter*.
 Why? The Military Defense needs the best pilots to win the war so they created a *virtual mission* to test your skills! 
 The best shooter will be awarded with infinite pizza and beer for the rest of his life.
