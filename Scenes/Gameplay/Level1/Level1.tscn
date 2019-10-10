@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Gameplay/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Spaceship/Spaceship.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Score/ScoreHandler.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Enemies/EnemySpawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/gameplay_music.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Scenes/Spaceship/HUD.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "move"
@@ -103,4 +104,7 @@ position = Vector2( 1090.63, 89.2953 )
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
+
+[node name="HUD" parent="." instance=ExtResource( 7 )]
+iconOffset = 50.0
 
