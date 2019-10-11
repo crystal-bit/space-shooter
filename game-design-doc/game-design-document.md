@@ -39,7 +39,7 @@ Year 322X. Major cities are now garbage dumps, the scum of the earth rules in ev
 
 The "way out", as someone called it, is to join the Military Artificial Combat Simulation program (also known as MACS) to become one of the MAC(the name of the vehicles) pilots who are fighting for the city faction on the WARG, the brutal war simulator that decide the fate of entire populations.
 
-You? Well you are one of them, just joined the program and ready to prove yourself on the field. Who knows what this new life will show to you, time will tell. 
+You? Well you are one of them, just joined the program and stuck in the loop that is the final exam, where you need to survive the endless waves of virtual enemies and get the highest rank possible. Who knows what this new life will show to you, time will tell. 
 
 (we could change the name of the game in "MAC FIGHTER") 
 ###### Old description 
