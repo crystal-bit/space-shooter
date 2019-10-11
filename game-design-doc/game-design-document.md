@@ -33,10 +33,14 @@ Show how skilled you are and survive the waves of incoming spaceships! The more 
 
 # Story
 
-War is changed. War is now a mere memory of what it was. 
+War is changed. War is now a mere memory of what it was.
+
 Year 322X. Major cities are now garbage dumps, the scum of the earth rules in every district and the high-ranking citizens live beyond the stratosphere where pollution and crime are miles away in suspended gardens on giants made of steel and concrete.
-The "way out", as someone called it, is to join the Military Artificial Combat Simulation program (also known as MACS) to become one of the MAC(the name of the vehicles) pilots who are fighting for the city faction on the WARG, the brutal war simulator that decide the fate of entire populations. 
+
+The "way out", as someone called it, is to join the Military Artificial Combat Simulation program (also known as MACS) to become one of the MAC(the name of the vehicles) pilots who are fighting for the city faction on the WARG, the brutal war simulator that decide the fate of entire populations.
+
 You? Well you are one of them, just joined the program and ready to prove yourself on the field. Who knows what this new life will show to you, time will tell. 
+
 (we could change the name of the game in "MAC FIGHTER") 
 ###### Old description 
 The war is coming and everyone is trying to become a *space shooter*.
