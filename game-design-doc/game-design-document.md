@@ -32,7 +32,7 @@
 Show how skilled you are and survive the waves of incoming spaceships! The more you survive, more points you get!
 
 # Story
-
+###### Suggested story
 War is changed. War is now a mere memory of what it was.
 
 Year 322X. Major cities are now garbage dumps, the scum of the earth rules in every district and the high-ranking citizens live beyond the stratosphere where pollution and crime are miles away in suspended gardens on giants made of steel and concrete.
