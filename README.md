@@ -61,6 +61,8 @@ Why? Well, everyone has his own preference when writing code, but when collabora
 
 🇹🇷 Dert etmeyin, Google Translate'ten yardım alın ve fikrinizi ifade etmeye çalışın. Yine de başarılı olamıyorsanız kendi dilinizde yazın, ama İngilizce iletişim kurabilmenin video oyunu ve yazılım endüstrisinde önemli bir beceri olduğunu unutmayın.
 
+:fr: Ne vous inquiétez pas, utilisez Google Translate pour obtenir de l'aide et essayez d'exprimer le concept, l'intention. Si vous ne pouvez vraiment pas le faire, écrivez dans votre langue, mais souvenez-vous que savoir communiquer en anglais est une compétence essentielle dans l'industrie du logiciel et des jeux vidéo.
+
 *Another flag* ... (see https://github.com/crystal-bit/space-shooter/issues/3)
 
 # License
