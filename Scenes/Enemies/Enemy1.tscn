@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Enemies/Enemy1.gd" type="Script" id=1]
-[ext_resource path="res://Assets/warped city files/sprites/vehicles/v-yellow.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Bullet/BulletEnemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/warped city files/sprites/vehicles/v-yellow.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 49, 33 )
@@ -10,9 +11,16 @@ extents = Vector2( 49, 33 )
 "Enemy",
 ]]
 script = ExtResource( 1 )
+EnemyBullet = ExtResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -58, 0 )
+enabled = true
+cast_to = Vector2( -200, 0 )
+collide_with_areas = true
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
 editor/display_folded = true
@@ -21,7 +29,10 @@ input_pickable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+[node name="FireCooldown" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[node name="Bullets" type="Node" parent="."]
+
+[connection signal="timeout" from="FireCooldown" to="." method="_on_Timer_timeout"]

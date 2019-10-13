@@ -36,6 +36,7 @@ position = Vector2( 204.327, 350.195 )
 scale = Vector2( 1.6, 1.6 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+editor/display_folded = true
 scale = Vector2( 3.2, 3.2 )
 transform = Transform2D( 3.2, 0, 0, 3.2, 0, 0 )
 
@@ -106,3 +107,4 @@ autoplay = true
 
 [node name="HUD" parent="." instance=ExtResource( 7 )]
 iconOffset = 50.0
+

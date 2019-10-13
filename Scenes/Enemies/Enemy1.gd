@@ -2,12 +2,18 @@ extends Node2D
 
 signal defeated
 
+export(PackedScene) var EnemyBullet
+
+onready var bullet_container = $Bullets
+onready var fire_cooldown: Timer = $FireCooldown
+
 # Enemy Attributes:
-export var speed = 850
+export var speed = 500
 var hp = 10
 var enemy_direction = Vector2()
 var pattern
 var y_start
+var is_shooting = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -30,7 +36,15 @@ func _process(delta):
 			if abs(self.global_position.y - y_start) > get_viewport().size.y * 0.3:
 				enemy_direction = Vector2(-1, 0)
 	self.global_position += enemy_direction * speed * delta
-
+	
+	if $RayCast2D.is_colliding():
+		if !is_shooting:
+			is_shooting = true
+			var bullet = EnemyBullet.instance()
+			bullet.position = self.get_position()
+			bullet_container.add_child(bullet)
+			fire_cooldown.start()
+			
 # The function lowers enemy's hp and removes the node if hp is <= 0
 func take_damage(damage):
 	hp -= damage
@@ -40,4 +54,4 @@ func take_damage(damage):
 
 
 func _on_Timer_timeout():
-	self.queue_free()
+	is_shooting = false
