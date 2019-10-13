@@ -6,16 +6,19 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 49, 33 )
 
-[node name="Enemy1" type="Node2D"]
+[node name="Enemy1" type="Node2D" groups=[
+"Enemy",
+]]
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
-[node name="Area2D" type="Area2D" parent="Sprite"]
+[node name="Area2D" type="Area2D" parent="."]
+editor/display_folded = true
 input_pickable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
