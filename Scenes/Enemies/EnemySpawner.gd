@@ -34,7 +34,7 @@ func spawnEnemy() -> void:
 	var pattern = randf()
 	for i in MAX_AMOUNT_OF_ENEMIES:
 		var enemy = Enemy.instance()
-		enemy.scale = Vector2(enemy_scale,enemy_scale)
+		enemy.scale = Vector2(enemy_scale, enemy_scale)
 		#example of how to add enemy to scene root.
 		enemy.global_position = self.global_position + Vector2(125 * i, 0)
 		if pattern <= 0.5:
@@ -45,7 +45,10 @@ func spawnEnemy() -> void:
 
 	
 func set_spawn_position():
-	self.global_position =Vector2(get_viewport().size.x+100,get_viewport().size.y*(0.2*(randi()%4+1)))
+	self.global_position = Vector2(
+		get_viewport().size.x + 100, 
+		get_viewport().size.y * (0.2 * (randi() % 4 + 1))
+	)
 	spawnEnemy()
 	
 
