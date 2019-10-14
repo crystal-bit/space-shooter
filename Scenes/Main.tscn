@@ -79,6 +79,7 @@ mirrorDistance = 200.0
 visibleHeightPercentage = 0.65
 
 [node name="UILayer" type="CanvasLayer" parent="."]
+editor/display_folded = true
 script = ExtResource( 5 )
 
 [node name="Logo" parent="UILayer" instance=ExtResource( 6 )]
@@ -95,6 +96,7 @@ margin_bottom = 75.0
 visible = false
 
 [node name="Spaceship" parent="." instance=ExtResource( 9 )]
+editor/display_folded = true
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 300, 126 )
 scale = Vector2( 4, 4 )
@@ -108,8 +110,8 @@ autoplay = true
 
 [connection signal="transition_updated" from="ScrollingBackground" to="ScrollingBuildings" method="_on_ScrollingBackground_transition_updated"]
 [connection signal="transition_updated" from="ScrollingBackground" to="." method="_on_ScrollingBackground_transition_updated"]
-[connection signal="transition_updated" from="ScrollingBackground" to="UILayer/MainButtons" method="_on_ScrollingBackground_transition_updated"]
 [connection signal="transition_updated" from="ScrollingBackground" to="ScrollingFarBuildings" method="_on_ScrollingBackground_transition_updated"]
+[connection signal="transition_updated" from="ScrollingBackground" to="UILayer/MainButtons" method="_on_ScrollingBackground_transition_updated"]
 [connection signal="optionsButtonClicked" from="UILayer/MainButtons" to="UILayer" method="_on_MainButtons_optionsButtonClicked"]
 [connection signal="startGameClicked" from="UILayer/MainButtons" to="." method="_on_MainButtons_startGameClicked"]
 [connection signal="animation_finished" from="Spaceship/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -8,4 +8,5 @@ script = ExtResource( 1 )
 Enemy = ExtResource( 2 )
 
 [node name="SpawnTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
