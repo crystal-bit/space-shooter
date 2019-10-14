@@ -7,7 +7,7 @@ var config: ConfigFile
 
 func _ready():
 	config = getConfigFile()
-	
+	 
 
 func show():
 	"""This overrides the default show() method."""
@@ -62,8 +62,11 @@ func _on_Cancel_pressed():
 	hide()
 	# reset initial values
 	setSceneValuesFromConfig(config)
+	AudioManager._on_volume_changed($VBoxContainer/Volume/HSlider.ratio)
 
 
 func _on_Ok_pressed():
 	hide()
 	saveConfig(config)
+	AudioManager._on_volume_changed($VBoxContainer/Volume/HSlider.ratio)
+	

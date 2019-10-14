@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 SceneManager="*res://Globals/SceneManager/SceneManager.gd"
+AudioManager="*res://Globals/AudioManager/AudioManager.gd"
 
 [display]
 
