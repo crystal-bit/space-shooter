@@ -65,6 +65,8 @@ Why? Well, everyone has his own preference when writing code, but when collabora
 
 🇧🇪🇨🇭🇦🇹 (...): Mach dir keine Sorgen. Du kannst einfach Google Übersetzer verwenden, um zu versuchen, das Konzept auszudrücken. Wenn du das wirklich nicht kannst, schreibe in deiner Sprache. Aber denkst du daran, dass das Beherrschen der englischen Sprache eine wichtige Fähigkeit für die Arbeit in der Software- und Videospielbranche ist.
 
+:fr: Ne vous inquiétez pas, utilisez Google Translate pour obtenir de l'aide et essayez d'exprimer le concept, l'intention. Si vous ne pouvez vraiment pas le faire, écrivez dans votre langue, mais souvenez-vous que savoir communiquer en anglais est une compétence essentielle dans l'industrie du logiciel et des jeux vidéo.
+
 *Another flag* ... (see https://github.com/crystal-bit/space-shooter/issues/3)
 
 # License
