@@ -68,6 +68,7 @@ func fire(d):
 		bullet.position = self.get_position() + guns_position
 		bullet_container.add_child(bullet)
 		next_shot = fire_rate
+		$AudioStreamPlayer2D.play()
 	else:
 		decrease_next_shot_remaining_time(d)
 	

@@ -44,6 +44,7 @@ func _process(delta):
 			bullet.position = self.get_position()
 			bullet_container.add_child(bullet)
 			fire_cooldown.start()
+			$AudioStreamPlayer2D.play()
 			
 # The function lowers enemy's hp and removes the node if hp is <= 0
 func take_damage(damage):

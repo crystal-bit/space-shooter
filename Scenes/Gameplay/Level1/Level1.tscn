@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/Spaceship/Spaceship.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/warped city files/environment/background/skyline-a.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Score/ScoreHandler.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/gameplay_music.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Music/gameplay_theme.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Scenes/Spaceship/HUD.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=1]
@@ -107,4 +107,3 @@ autoplay = true
 
 [node name="HUD" parent="." instance=ExtResource( 7 )]
 iconOffset = 50.0
-
