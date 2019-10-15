@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Enemies/Enemy1.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Bullet/BulletEnemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/warped city files/sprites/vehicles/v-yellow.png" type="Texture" id=3]
+[ext_resource path="res://Sounds/laser_shoot3.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 49, 33 )
@@ -34,5 +35,10 @@ wait_time = 2.0
 autostart = true
 
 [node name="Bullets" type="Node" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+attenuation = 3.24901
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="FireCooldown" to="." method="_on_Timer_timeout"]
