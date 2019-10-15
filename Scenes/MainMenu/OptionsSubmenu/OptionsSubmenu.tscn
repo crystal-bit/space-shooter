@@ -93,6 +93,7 @@ margin_right = 302.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
+value = 100.0
 ticks_on_borders = true
 
 [node name="Control" type="Control" parent="VBoxContainer"]

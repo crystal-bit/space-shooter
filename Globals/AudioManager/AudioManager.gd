@@ -16,5 +16,5 @@ func read_volume_from_config():
 	
 	var err = config.load(SAVE_FILE_PATH)
 	if err == OK:
-		var ratio = config.get_value("audio", "volume") / 100
+		var ratio = config.get_value("audio", "volume", 100) / 100
 		_on_volume_changed(ratio)
