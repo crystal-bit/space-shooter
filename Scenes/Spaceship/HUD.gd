@@ -32,6 +32,10 @@ func _process(delta) -> void:
 	pass
 
 
+func _on_Spaceship_damage_taken():
+	remove_life()
+	
+	
 func remove_life() -> void:
 	if currentLifeCount == 0:
 		#we just lost health, on our last life. It's game over
@@ -60,3 +64,5 @@ func place_health_icons() -> void:
 		# i+1 is used as the key here, so our health_icon's key
 		# will be equal to the remaining number of lives
 		lifeIcons[i+1] = health_icon
+
+

@@ -34,5 +34,5 @@ wait_time = 2.0
 autostart = true
 
 [node name="Bullets" type="Node" parent="."]
-
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="FireCooldown" to="." method="_on_Timer_timeout"]

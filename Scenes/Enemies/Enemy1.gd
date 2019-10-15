@@ -52,6 +52,13 @@ func take_damage(damage):
 		emit_signal("defeated")
 		queue_free()
 
+func _on_Area2D_body_entered(collider):
+	if "Player" in collider.get_groups():
+		if collider.is_idle():
+			collider.handle_collision()
+			queue_free()
+		
 
+		
 func _on_Timer_timeout():
 	is_shooting = false

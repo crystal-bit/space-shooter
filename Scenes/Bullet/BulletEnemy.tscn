@@ -15,7 +15,6 @@ texture = ExtResource( 2 )
 flip_h = true
 
 [node name="Area2D" type="Area2D" parent="."]
-editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -1.32256, -0.283405 )
@@ -23,4 +22,4 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
