@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/Spaceship/Spaceship.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/warped city files/environment/background/skyline-a.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Score/ScoreHandler.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/gameplay_music.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Music/gameplay_theme.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Scenes/Spaceship/HUD.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=1]
@@ -36,7 +36,6 @@ position = Vector2( 204.327, 350.195 )
 scale = Vector2( 1.6, 1.6 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-editor/display_folded = true
 scale = Vector2( 3.2, 3.2 )
 transform = Transform2D( 3.2, 0, 0, 3.2, 0, 0 )
 
@@ -107,4 +106,4 @@ autoplay = true
 
 [node name="HUD" parent="." instance=ExtResource( 7 )]
 iconOffset = 50.0
-
+[connection signal="damage_taken" from="Spaceship" to="HUD" method="_on_Spaceship_damage_taken"]

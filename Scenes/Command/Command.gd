@@ -11,7 +11,7 @@ var inputKey
 var isCurrentlyPressed : bool = false
 
 
-func Command(ID : String, inputKey : int, inputType : String):
+func command(ID : String, inputKey : int, inputType : String):
 	self.ID = ID
 	self.inputKey = inputKey
 	self.inputType = inputType
