@@ -55,13 +55,11 @@ Why? Well, everyone has his own preference when writing code, but when collabora
 
 ## _"Non parlo Inglese"_ (_"I don't speak English!"_)
 
-> :warning:  NOTE: If you don't see a flag representing your nation, I'm really sorry for this. We decided to put 3 flags at max for each language for practical reasons. Feel free to say your opinion and leave a comment [here](https://github.com/crystal-bit/space-shooter/pull/41)-
-
 🇮🇹 Non preoccuparti, aiutati con Google Translate e prova ad esprimere il concetto. Se proprio non riesci, scrivi in Italiano ma ricorda che sapere comunicare in Inglese è una skill importante da avere per lavorare nell'industria del software e dei videogame.
 
 🇬🇧 / 🇺🇸 Don't worry, use Google Translate for help and try to express the concept. If you really can't, write in your language, but remember that knowing how to communicate in English is an important skill to have for working in the software and video game industry.
 
-:es: :argentina: :mexico: (...): No se preocupe, ayúdese con Google Translate e intente expresar el concepto. Si realmente no puede, escriba en tu idioma, pero recuerde que saber cómo comunicarse en inglés es una habilidad importante para trabajar en la industria del software y los videojuegos.
+🇪🇸 No se preocupe, ayúdese con Google Translate e intente expresar el concepto. Si realmente no puede, escriba en tu idioma, pero recuerde que saber cómo comunicarse en inglés es una habilidad importante para trabajar en la industria del software y los videojuegos.
 
 🇧🇷 Não se preocupe, use o Google Tradutor para ajudá-lo e tente explicar seu conceito. Se você realmente não conseguir, escreva no seu idioma, mas lembre-se que aprender a se comunicar em inglês é uma habilidade importante para trabalhar na industria de software e video games.
 

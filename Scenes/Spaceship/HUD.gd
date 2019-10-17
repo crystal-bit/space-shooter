@@ -3,11 +3,11 @@ extends Node2D
 signal game_over
 
 # X and Y coordinates for the first life icon
-const iconPosX = 100
-const iconPosY = 50
+const iconPosX = 250
+const iconPosY = 250
 # The offset, to place the other life icons.
 # This number should be set to the width of the icon + a number of pixels to use as a gap between icons
-export (float) var iconOffset = 80
+export (float) var iconOffset = 200
 
 # This HUD will draw 4 lives on screen, and then
 # give the player one more life that doesn't get a graphic

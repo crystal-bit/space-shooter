@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Gameplay/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Enemies/EnemySpawner.tscn" type="PackedScene" id=2]
@@ -28,10 +28,7 @@ tracks/0/keys = {
 [node name="Level1" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="EnemySpawner" parent="." instance=ExtResource( 2 )]
-spawnRate = 2.0
-
-[node name="Spaceship" parent="." instance=ExtResource( 3 )]
+[node name="Spaceship" parent="." instance=ExtResource( 2 )]
 position = Vector2( 204.327, 350.195 )
 scale = Vector2( 1.6, 1.6 )
 
@@ -43,29 +40,29 @@ transform = Transform2D( 3.2, 0, 0, 3.2, 0, 0 )
 motion_mirroring = Vector2( 512, 0 )
 
 [node name="SkylineA" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 centered = false
 
 [node name="SkylineA2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2( 128, 0 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 centered = false
 
 [node name="SkylineA3" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2( 256, 0 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 centered = false
 
 [node name="SkylineA4" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2( 384, 0 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground"]
 autoplay = "move"
 anims/move = SubResource( 1 )
 
-[node name="ScoreHandler" parent="." instance=ExtResource( 5 )]
+[node name="ScoreHandler" parent="." instance=ExtResource( 4 )]
 
 [node name="Score" type="Label" parent="."]
 editor/display_folded = true
@@ -99,6 +96,9 @@ margin_top = 430.0
 margin_right = 1180.0
 margin_bottom = 510.0
 text = "Reset Multiplier"
+
+[node name="EnemySpawner" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1090.63, 89.2953 )
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
