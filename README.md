@@ -8,7 +8,11 @@
 
 *Space Shooter* is a shoot'em-up game created for the [Hacktoberfest 2019](https://hacktoberfest.digitalocean.com/).  
 
-It's intended for people who want to learn Godot game programming in a collaborative way.
+It's intended for people who want to learn [Godot](https://godotengine.org) game programming in a collaborative way.
+
+## Pre-requisites
+
+* Godot > 3.0.6
 
 ## How can I contribute?
 
