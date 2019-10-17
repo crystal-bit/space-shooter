@@ -8,26 +8,16 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 49, 33 )
 
-[node name="Enemy1" type="Node2D" groups=[
-"Enemy",
-]]
+[node name="Enemy1" type="Node2D"]
 script = ExtResource( 1 )
-EnemyBullet = ExtResource( 2 )
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2( -58, 0 )
-enabled = true
-cast_to = Vector2( -200, 0 )
-collide_with_areas = true
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
-[node name="Area2D" type="Area2D" parent="."]
-editor/display_folded = true
+[node name="Area2D" type="Area2D" parent="Sprite"]
 input_pickable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
 shape = SubResource( 1 )
 
 [node name="FireCooldown" type="Timer" parent="."]
