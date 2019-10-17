@@ -2,13 +2,24 @@ extends Node2D
 
 signal defeated
 
+export(PackedScene) var EnemyBullet
+
+onready var bullet_container = $Bullets
+onready var fire_cooldown: Timer = $FireCooldown
+
 # Enemy Attributes:
+export var speed = 500
 var hp = 10
-# var STR = 5
+var enemy_direction = Vector2()
+var pattern
+var y_start
+var is_shooting = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	y_start = self.global_position.y
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

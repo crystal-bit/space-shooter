@@ -39,7 +39,7 @@ margin_right = 678.0
 margin_bottom = 760.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color( 1, 1, 1, 0.0333333 )
+modulate = Color( 1, 1, 1, 2.23849e-11 )
 material = SubResource( 1 )
 anchor_left = 0.5
 anchor_top = 1.0
@@ -50,7 +50,7 @@ margin_top = -270.0
 margin_right = 330.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_scale = Vector2( 0.0322581, 0.0322581 )
+rect_scale = Vector2( 0, 0 )
 rect_pivot_offset = Vector2( 324.969, 132.617 )
 rect_clip_content = true
 texture = ExtResource( 1 )
@@ -59,3 +59,4 @@ expand = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Logo"
 anims/Logo = SubResource( 2 )
+
