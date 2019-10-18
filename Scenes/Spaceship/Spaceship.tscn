@@ -62,4 +62,5 @@ one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+[connection signal="damage_taken" from="." to="." method="_on_Spaceship_damage_taken"]
 [connection signal="timeout" from="RecoveryTimer" to="." method="_on_Recovery_Timer_timeout"]
