@@ -1,6 +1,6 @@
 extends Node2D
 
-export var speed = 500
+export var speed = 200
 
 func _process(delta):
 	check_if_on_screen()

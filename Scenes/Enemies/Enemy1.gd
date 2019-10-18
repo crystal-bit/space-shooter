@@ -74,6 +74,7 @@ func _on_Enemy1_defeated():
 		var power = POWERUP.instance()
 		#power.position = self.get_position()
 		power.position = self.global_position
+		power.scale = Vector2(1, 1)
 		get_parent().add_child(power)
 	queue_free()
 	

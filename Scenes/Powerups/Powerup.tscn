@@ -17,8 +17,8 @@ animations = [ {
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0.158797, 0.104726 )
-scale = Vector2( 0.134, 0.134 )
+position = Vector2( 0.0270352, -0.0270357 )
+scale = Vector2( 0.180322, 0.180322 )
 frames = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
