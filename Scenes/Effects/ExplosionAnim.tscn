@@ -1,0 +1,24 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/warped city files/sprites/misc/enemy-explosion/enemy-explosion-1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/warped city files/sprites/misc/enemy-explosion/enemy-explosion-2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/warped city files/sprites/misc/enemy-explosion/enemy-explosion-3.png" type="Texture" id=3]
+[ext_resource path="res://Assets/warped city files/sprites/misc/enemy-explosion/enemy-explosion-4.png" type="Texture" id=4]
+[ext_resource path="res://Assets/warped city files/sprites/misc/enemy-explosion/enemy-explosion-5.png" type="Texture" id=5]
+[ext_resource path="res://Assets/warped city files/sprites/misc/enemy-explosion/enemy-explosion-6.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Effects/ExplosionAnim.gd" type="Script" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[node name="ExplosionAnim" type="AnimatedSprite"]
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 1 )
+frame = 1
+script = ExtResource( 7 )
+[connection signal="animation_finished" from="." to="." method="_on_ExplosionAnim_animation_finished"]

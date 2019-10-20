@@ -6,3 +6,9 @@ export_presets.cfg
 # Mono-specific ignores
 .mono/
 
+
+*.import
+
+settings.cfg
+
+Scenes/Gameplay/Level1/Sandbox.tscn
