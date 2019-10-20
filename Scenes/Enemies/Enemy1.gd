@@ -39,6 +39,10 @@ func _process(delta):
 				enemy_direction = Vector2(-1, 0)
 	self.global_position += enemy_direction * speed * delta
 	
+		# Tracks the position of this instance and destroys it after it gets out of sight
+	if self.global_position.x <= -100:
+		queue_free()
+	
 	if $RayCast2D.is_colliding():
 		if !is_shooting:
 			is_shooting = true
@@ -48,7 +52,8 @@ func _process(delta):
 			$AudioStreamPlayer2D.play()
 			fire_cooldown.start()
 			$AudioStreamPlayer2D.play()
-			
+	
+
 # The function lowers enemy's hp and removes the node if hp is <= 0
 func take_damage(damage):
 	hp -= damage
