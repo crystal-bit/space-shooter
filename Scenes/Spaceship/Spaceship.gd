@@ -137,3 +137,10 @@ func get_command(ID):
 			return cmd
 			
 			
+
+func _on_damage_taken():
+	pass # Replace with function body.
+
+
+func _on_Spaceship_damage_taken():
+	pass # Replace with function body.

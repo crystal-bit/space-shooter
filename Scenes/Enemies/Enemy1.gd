@@ -3,6 +3,7 @@ extends Node2D
 signal defeated
 
 export(PackedScene) var EnemyBullet
+const POWERUP = preload("res://Scenes/Powerups/Powerup.tscn")
 
 onready var bullet_container = $Bullets
 onready var fire_cooldown: Timer = $FireCooldown
@@ -14,6 +15,7 @@ var enemy_direction = Vector2()
 var pattern
 var y_start
 var is_shooting = false
+var rng = RandomNumberGenerator.new()
 
 
 # Called when the node enters the scene tree for the first time.
@@ -59,8 +61,20 @@ func _on_Area2D_body_entered(collider):
 		if collider.is_idle():
 			collider.handle_collision()
 			queue_free()
-		
 
-		
 func _on_Timer_timeout():
 	is_shooting = false
+
+func _on_Enemy1_defeated():
+# Add here explosion animation
+	rng.randomize()
+	var chance = rng.randi_range(1, 10)
+	if chance <= 2:
+		# Should be added a level group in case there will be more than 1 level
+		var power = POWERUP.instance()
+		#power.position = self.get_position()
+		power.position = self.global_position
+		power.scale = Vector2(1, 1)
+		get_parent().add_child(power)
+	queue_free()
+	
