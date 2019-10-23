@@ -40,6 +40,7 @@ scale = Vector2( 3.2, 3.2 )
 transform = Transform2D( 3.2, 0, 0, 3.2, 0, 0 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
 motion_mirroring = Vector2( 512, 0 )
 
 [node name="SkylineA" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
@@ -68,7 +69,6 @@ anims/move = SubResource( 1 )
 [node name="ScoreHandler" parent="." instance=ExtResource( 5 )]
 
 [node name="Score" type="Label" parent="."]
-editor/display_folded = true
 margin_left = 1114.0
 margin_top = 70.0
 margin_right = 1261.0
@@ -85,20 +85,6 @@ margin_bottom = 24.0
 text = "x1"
 align = 1
 valign = 1
-
-[node name="AddPoints" type="Button" parent="."]
-margin_left = 950.0
-margin_top = 330.0
-margin_right = 1196.0
-margin_bottom = 396.0
-text = "Add Points"
-
-[node name="ResetMultiplier" type="Button" parent="."]
-margin_left = 970.0
-margin_top = 430.0
-margin_right = 1180.0
-margin_bottom = 510.0
-text = "Reset Multiplier"
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )

@@ -52,6 +52,7 @@ tracks/2/keys = {
 }
 
 [node name="Main" type="Node2D"]
+editor/display_folded = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -79,7 +80,6 @@ mirrorDistance = 200.0
 visibleHeightPercentage = 0.65
 
 [node name="UILayer" type="CanvasLayer" parent="."]
-editor/display_folded = true
 script = ExtResource( 5 )
 
 [node name="Logo" parent="UILayer" instance=ExtResource( 6 )]
@@ -96,6 +96,7 @@ margin_bottom = 75.0
 visible = false
 
 [node name="Spaceship" parent="." instance=ExtResource( 9 )]
+editor/display_folded = true
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 300, 126 )
 scale = Vector2( 4, 4 )

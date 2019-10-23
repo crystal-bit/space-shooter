@@ -16,6 +16,7 @@ export(State) var current_state = State.IDLE
 
 var next_shot = 0
 var guns_position = Vector2(100,35)
+var viewport_size
 
 signal damage_taken()
 
@@ -26,6 +27,8 @@ func _ready():
 	#disable physics process after creation
 	#so user can't move the spaceship
 	self.set_physics_process(false)
+	
+	viewport_size = get_viewport_rect().size
 
 
 func _physics_process(d):
@@ -101,7 +104,11 @@ func handle_movement(d):
 		direction.x =+ 1
 	
 	move_and_collide(direction * speed * d)
+	clamp_position_to_viewport_size()
 
+func clamp_position_to_viewport_size():
+	position.x = clamp(position.x, 0, viewport_size.x)
+	position.y = clamp(position.y, 0, viewport_size.y)
 
 func handle_shooting(d):
 	if get_command("J").isPressed():
