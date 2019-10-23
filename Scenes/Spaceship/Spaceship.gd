@@ -8,7 +8,7 @@ onready var sprite = $Sprite
 
 export(PackedScene) var command_reference = load("res://Scenes/Command/Command.tscn")
 export(float, 0, 500, .5) var speed = 200
-export(float, 0, 10, .5) var fire_rate = .5
+export(float, 0, 10, .5) var fire_rate = 1
 export(float, 0, 10, .5) var recovery_time = 3
 
 enum State {IDLE, RECOVERY}
@@ -26,8 +26,6 @@ func _ready():
 	#disable physics process after creation
 	#so user can't move the spaceship
 	self.set_physics_process(false)
-	
-	connect("damage_taken", self, "_on_damage_taken")
 
 
 func _physics_process(d):
@@ -137,10 +135,3 @@ func get_command(ID):
 			return cmd
 			
 			
-
-func _on_damage_taken():
-	pass # Replace with function body.
-
-
-func _on_Spaceship_damage_taken():
-	pass # Replace with function body.
