@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/warped city files/environment/background/skyline-a.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "move"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scroll_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -768, 0 ) ]
+}
+
+[node name="Gameover" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2( 3.2, 3.2 )
+transform = Transform2D( 3.2, 0, 0, 3.2, 0, 0 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 512, 0 )
+
+[node name="SkylineA" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="SkylineA2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 128, 0 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="SkylineA3" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 256, 0 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="SkylineA4" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 384, 0 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground"]
+autoplay = "move"
+anims/move = SubResource( 1 )

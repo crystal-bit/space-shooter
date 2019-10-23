@@ -91,5 +91,5 @@ stream = ExtResource( 6 )
 autoplay = true
 
 [node name="HUD" parent="." instance=ExtResource( 7 )]
-iconOffset = 50.0
 [connection signal="damage_taken" from="Spaceship" to="HUD" method="_on_Spaceship_damage_taken"]
+[connection signal="game_over" from="HUD" to="Spaceship" method="_on_game_over"]

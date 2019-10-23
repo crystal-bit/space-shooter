@@ -11,7 +11,7 @@ export(float, 0, 500, .5) var speed = 200
 export(float, 0, 10, .5) var fire_rate = .5
 export(float, 0, 10, .5) var recovery_time = 3
 
-enum State {IDLE, RECOVERY}
+enum State {IDLE, RECOVERY, DEAD}
 export(State) var current_state = State.IDLE
 
 var next_shot = 0
@@ -34,6 +34,9 @@ func _ready():
 
 
 func _physics_process(d):
+	if(current_state == State.DEAD):
+		return
+		
 	handle_movement(d)
 	handle_shooting(d)
 	
@@ -51,6 +54,15 @@ func _on_Recovery_Timer_timeout():
 	current_state = State.IDLE
 	
 	
+func _on_game_over():
+	current_state = State.DEAD
+	$ExplosionParticleSystem/ExplosionSound.play()
+	$ExplosionParticleSystem.start_emission()
+	$Sprite.visible = false
+	yield(get_tree().create_timer(2.0), "timeout")
+	SceneManager.goto_scene("res://Scenes/Gameplay/Gameover/Gameover.tscn")
+	
+	
 func handle_collision():
 	if(current_state == State.IDLE):
 		emit_signal("damage_taken")
@@ -66,7 +78,7 @@ func init_controls():
 	var a_button = command_reference.instance()
 	a_button.command("A", KEY_A, "key")
 	$Inputs.add_child(a_button)
-	4
+	
 	var s_button = command_reference.instance()
 	s_button.command("S", KEY_S, "key")
 	$Inputs.add_child(s_button)
@@ -78,6 +90,10 @@ func init_controls():
 	var j_button = command_reference.instance()
 	j_button.command("J", KEY_J, "key")
 	$Inputs.add_child(j_button)
+	
+	var x_button = command_reference.instance()
+	x_button.command("X", KEY_X, "key")
+	$Inputs.add_child(x_button)
 	
 	 
 func init_recovery_timer():
@@ -143,11 +159,4 @@ func get_command(ID):
 		if cmd.ID == ID:
 			return cmd
 			
-			
-
-func _on_damage_taken():
-	pass # Replace with function body.
-
-
-func _on_Spaceship_damage_taken():
-	pass # Replace with function body.
+				
