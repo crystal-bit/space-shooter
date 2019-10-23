@@ -1,0 +1,141 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Scenes/Spaceship/ExplosionParticleSystem.gd" type="Script" id=1]
+[ext_resource path="res://Particles/textureParticles1.png" type="Texture" id=2]
+[ext_resource path="res://Sounds/explosion.wav" type="AudioStream" id=3]
+
+[sub_resource type="Gradient" id=14]
+colors = PoolColorArray( 1, 0.960784, 0, 1, 1, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=15]
+gradient = SubResource( 14 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 1 ), 0.0, -1.0, 0, 1, Vector2( 1, 0 ), -1.0, 0.0, 1, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 100.0
+initial_velocity_random = 1.0
+angular_velocity = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 25.0
+damping = 0.5
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 15 )
+
+[sub_resource type="CanvasItemMaterial" id=8]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=9]
+colors = PoolColorArray( 0.983887, 0.983887, 0.983887, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=10]
+gradient = SubResource( 9 )
+
+[sub_resource type="Curve" id=11]
+_data = [ Vector2( 0, 0 ), 0.0, 1.32118, 0, 0, Vector2( 1, 1 ), 1.57237, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=12]
+curve = SubResource( 11 )
+
+[sub_resource type="ParticlesMaterial" id=13]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 90 )
+angular_velocity = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 5.0
+scale_curve = SubResource( 12 )
+color_ramp = SubResource( 10 )
+
+[sub_resource type="Gradient" id=16]
+colors = PoolColorArray( 0.631373, 0.0117647, 0.0117647, 0.501961, 0.172549, 0.152941, 0.152941, 0.980392 )
+
+[sub_resource type="GradientTexture" id=17]
+gradient = SubResource( 16 )
+
+[sub_resource type="ParticlesMaterial" id=18]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, -120, 0 )
+initial_velocity = 100.0
+initial_velocity_random = 1.0
+angular_velocity = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 15.0
+scale = 0.5
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 17 )
+
+[sub_resource type="Curve" id=19]
+_data = [ Vector2( 0, 0.0951999 ), 0.0, 0.4048, 0, 1, Vector2( 1, 0.5 ), 0.4048, 0.0, 1, 0 ]
+
+[sub_resource type="CurveTexture" id=20]
+curve = SubResource( 19 )
+
+[sub_resource type="ParticlesMaterial" id=21]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 300.0
+angular_velocity = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 1000.0
+scale = 0.9
+scale_curve = SubResource( 20 )
+
+[node name="ExplosionEffectSystem" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ExplosionParticles" type="Particles2D" parent="."]
+emitting = false
+amount = 100
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2( -141.082, -152.289, 287.197, 304.695 )
+process_material = SubResource( 7 )
+texture = ExtResource( 2 )
+
+[node name="LightParticles" type="Particles2D" parent="."]
+material = SubResource( 8 )
+emitting = false
+amount = 5
+one_shot = true
+local_coords = false
+process_material = SubResource( 13 )
+texture = ExtResource( 2 )
+
+[node name="SmokeParticles" type="Particles2D" parent="."]
+emitting = false
+amount = 50
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2( -141.082, -152.289, 287.197, 304.695 )
+process_material = SubResource( 18 )
+texture = ExtResource( 2 )
+
+[node name="SpeedParticles" type="Particles2D" parent="."]
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2( -141.082, -152.289, 287.197, 304.695 )
+process_material = SubResource( 21 )
+texture = ExtResource( 2 )
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
