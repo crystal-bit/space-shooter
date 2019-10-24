@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	self.set_physics_process(true)
+	pass
 	
 func start_emission():
 	$ExplosionParticles.emitting = true
