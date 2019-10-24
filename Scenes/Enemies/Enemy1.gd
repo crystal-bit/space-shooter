@@ -2,8 +2,8 @@ extends Node2D
 
 signal defeated
 
-onready var explosionNode = preload("res://Scenes/Effects/ExplosionAnim.tscn")
-onready var powerup = preload("res://Scenes/powerups/Powerup.tscn")
+onready var explosionScene = preload("res://Scenes/Effects/ExplosionAnim.tscn")
+onready var powerupScene = preload("res://Scenes/Powerups/Powerup.tscn")
 onready var bullet_container = $Bullets
 onready var fire_cooldown: Timer = $FireCooldown
 
@@ -34,7 +34,7 @@ func _on_Enemy1_defeated():
 	var chance = rng.randi_range(1, 10)
 	if chance <= 2:
 		# Should be added a level group in case there will be more than 1 level
-		var power = powerup.instance()
+		var power = powerupScene.instance()
 		#power.position = self.get_position()
 		power.position = self.global_position
 		power.scale = Vector2(1, 1)
@@ -93,7 +93,7 @@ func take_damage(damage):
 
 
 func create_explosion_anim():
-	var explosionAnim = explosionNode.instance()
+	var explosionAnim = explosionScene.instance()
 	explosionAnim.position = self.global_position
 	explosionAnim.scale = Vector2(rand_range(1,2),rand_range(1,2))
 	explosionAnim.start_anim()

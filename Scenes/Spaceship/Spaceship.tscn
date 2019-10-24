@@ -41,6 +41,7 @@ extents = Vector2( 40.1082, 21.1094 )
 ]]
 position = Vector2( 110.823, 58.3905 )
 script = ExtResource( 1 )
+fire_rate = 0.2
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 2 )

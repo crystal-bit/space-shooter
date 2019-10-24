@@ -8,7 +8,7 @@ onready var sprite = $Sprite
 
 export(PackedScene) var command_reference = load("res://Scenes/Command/Command.tscn")
 export(float, 0, 500, .5) var speed = 200
-export(float, 0, 10, .5) var fire_rate = 1
+export(float, 0, 2, .1) var fire_rate = 1
 export(float, 0, 10, .5) var recovery_time = 3
 
 enum State {IDLE, RECOVERY}
