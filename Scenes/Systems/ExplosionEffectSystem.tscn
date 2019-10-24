@@ -1,43 +1,8 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://Scenes/Spaceship/Spaceship.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Shaders/Spaceship.tres" type="Material" id=2]
-[ext_resource path="res://Assets/warped city files/sprites/vehicles/spaceship-unit.png" type="Texture" id=3]
-[ext_resource path="res://Sounds/laser_shoot.wav" type="AudioStream" id=4]
-[ext_resource path="res://Scenes/Spaceship/ExplosionParticleSystem.gd" type="Script" id=5]
-[ext_resource path="res://Particles/textureParticles1.png" type="Texture" id=6]
-[ext_resource path="res://Sounds/explosion.wav" type="AudioStream" id=7]
-
-[sub_resource type="Animation" id=1]
-resource_name = "idle"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3, 1 ),
-"transitions": PoolRealArray( 1.56917, 1, 1.23114 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 40.1082, 21.1094 )
+[ext_resource path="res://Scenes/Spaceship/ExplosionParticleSystem.gd" type="Script" id=1]
+[ext_resource path="res://Particles/textureParticles1.png" type="Texture" id=2]
+[ext_resource path="res://Sounds/explosion.wav" type="AudioStream" id=3]
 
 [sub_resource type="Gradient" id=14]
 colors = PoolColorArray( 1, 0.960784, 0, 1, 1, 0, 0, 1 )
@@ -131,38 +96,10 @@ linear_accel = 1000.0
 scale = 0.9
 scale_curve = SubResource( 20 )
 
-[node name="Spaceship" type="KinematicBody2D" groups=[
-"Player",
-]]
-position = Vector2( 110.823, 58.3905 )
+[node name="ExplosionEffectSystem" type="Node2D"]
 script = ExtResource( 1 )
-fire_rate = 0.2
 
-[node name="Sprite" type="Sprite" parent="."]
-material = ExtResource( 2 )
-texture = ExtResource( 3 )
-hframes = 4
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
-anims/idle = SubResource( 1 )
-
-[node name="Inputs" type="Node" parent="."]
-
-[node name="Bullets" type="Node" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
-
-[node name="RecoveryTimer" type="Timer" parent="."]
-one_shot = true
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 4 )
-
-[node name="ExplosionParticleSystem" type="Node2D" parent="."]
-script = ExtResource( 5 )
-
-[node name="ExplosionParticles" type="Particles2D" parent="ExplosionParticleSystem"]
+[node name="ExplosionParticles" type="Particles2D" parent="."]
 emitting = false
 amount = 100
 lifetime = 1.5
@@ -170,18 +107,18 @@ one_shot = true
 explosiveness = 1.0
 visibility_rect = Rect2( -141.082, -152.289, 287.197, 304.695 )
 process_material = SubResource( 7 )
-texture = ExtResource( 6 )
+texture = ExtResource( 2 )
 
-[node name="LightParticles" type="Particles2D" parent="ExplosionParticleSystem"]
+[node name="LightParticles" type="Particles2D" parent="."]
 material = SubResource( 8 )
 emitting = false
 amount = 5
 one_shot = true
 local_coords = false
 process_material = SubResource( 13 )
-texture = ExtResource( 6 )
+texture = ExtResource( 2 )
 
-[node name="SmokeParticles" type="Particles2D" parent="ExplosionParticleSystem"]
+[node name="SmokeParticles" type="Particles2D" parent="."]
 emitting = false
 amount = 50
 lifetime = 1.5
@@ -189,18 +126,16 @@ one_shot = true
 explosiveness = 1.0
 visibility_rect = Rect2( -141.082, -152.289, 287.197, 304.695 )
 process_material = SubResource( 18 )
-texture = ExtResource( 6 )
+texture = ExtResource( 2 )
 
-[node name="SpeedParticles" type="Particles2D" parent="ExplosionParticleSystem"]
+[node name="SpeedParticles" type="Particles2D" parent="."]
 emitting = false
 amount = 12
 one_shot = true
 explosiveness = 1.0
 visibility_rect = Rect2( -141.082, -152.289, 287.197, 304.695 )
 process_material = SubResource( 21 )
-texture = ExtResource( 6 )
+texture = ExtResource( 2 )
 
-[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="ExplosionParticleSystem"]
-stream = ExtResource( 7 )
-[connection signal="damage_taken" from="." to="." method="_on_Spaceship_damage_taken"]
-[connection signal="timeout" from="RecoveryTimer" to="." method="_on_Recovery_Timer_timeout"]
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
