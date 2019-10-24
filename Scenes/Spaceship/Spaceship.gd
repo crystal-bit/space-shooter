@@ -64,6 +64,7 @@ func _on_game_over():
 func handle_collision():
 	if(current_state == State.IDLE):
 		emit_signal("damage_taken")
+		$HitSound.play()
 		recovery_timer.start()
 		current_state = State.RECOVERY
 	
