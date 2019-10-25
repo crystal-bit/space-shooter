@@ -4,12 +4,13 @@ onready var bullet_scene = preload("res://Scenes/Bullet/Bullet.tscn")
 onready var bullet_container = get_node("Bullets")
 onready var gun_node = get_node("Guns")
 onready var recovery_timer: Timer = $RecoveryTimer
+onready var powerup_timer: Timer = $PowerupTimer
 onready var sprite = $Sprite
 onready var powerup_sfx: AudioStreamPlayer2D = $PowerupSFX
 
 export(PackedScene) var command_reference = load("res://Scenes/Command/Command.tscn")
 export(float, 0, 500, .5) var speed = 200
-export(float, 0, 2, .1) var fire_rate = 1
+export(float, 0, 2, .1) var fire_rate = 0.3
 export(float, 0, 10, .5) var recovery_time = 3
 
 enum State {IDLE, RECOVERY, DEAD}
@@ -18,6 +19,7 @@ export(State) var current_state = State.IDLE
 var next_shot = 0
 var guns_position = Vector2(100,35)
 var viewport_size
+var modified_fire_rate: float = fire_rate
 
 signal damage_taken()
 
@@ -52,6 +54,8 @@ func _process(d):
 func _on_Recovery_Timer_timeout():
 	current_state = State.IDLE
 
+func _on_PowerupTimer_timeout() -> void:
+	modified_fire_rate = fire_rate
 
 func _on_game_over():
 	current_state = State.DEAD
@@ -139,7 +143,7 @@ func fire(d):
 		var bullet = bullet_scene.instance()
 		bullet.position = self.get_position() + guns_position
 		bullet_container.add_child(bullet)
-		next_shot = fire_rate
+		next_shot = modified_fire_rate
 		$AudioStreamPlayer2D.play()
 	else:
 		decrease_next_shot_remaining_time(d)
@@ -158,6 +162,7 @@ func get_command(ID):
 		if cmd.ID == ID:
 			return cmd
 
-func play_powerup_sfx():
-	if powerup_sfx:
-		powerup_sfx.play()
+func activate_powerup():
+	powerup_timer.start()
+	powerup_sfx.play()
+	modified_fire_rate = 0.55 * fire_rate

@@ -14,5 +14,5 @@ func check_if_on_screen():
 
 func _on_Area2D_body_entered(body: PhysicsBody2D):
 	if "Player" in body.get_groups():
-		body.play_powerup_sfx()
+		body.activate_powerup()
 		queue_free()

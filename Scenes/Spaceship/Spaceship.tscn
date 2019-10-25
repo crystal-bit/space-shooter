@@ -134,7 +134,6 @@ scale_curve = SubResource( 18 )
 position = Vector2( 110.823, 58.3905 )
 collision_layer = 9
 script = ExtResource( 1 )
-fire_rate = 0.2
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 2 )
@@ -152,6 +151,10 @@ anims/idle = SubResource( 1 )
 shape = SubResource( 2 )
 
 [node name="RecoveryTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PowerupTimer" type="Timer" parent="."]
+wait_time = 15.0
 one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
@@ -206,3 +209,4 @@ texture = ExtResource( 7 )
 stream = ExtResource( 8 )
 [connection signal="damage_taken" from="." to="." method="_on_Spaceship_damage_taken"]
 [connection signal="timeout" from="RecoveryTimer" to="." method="_on_Recovery_Timer_timeout"]
+[connection signal="timeout" from="PowerupTimer" to="." method="_on_PowerupTimer_timeout"]
