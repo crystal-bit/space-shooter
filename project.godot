@@ -32,6 +32,11 @@ window/vsync/use_vsync=false
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
+[layer_names]
+
+2d_render/layer_4="Powerups"
+2d_physics/layer_4="Powerups"
+
 [rendering]
 
 quality/2d/use_pixel_snap=true

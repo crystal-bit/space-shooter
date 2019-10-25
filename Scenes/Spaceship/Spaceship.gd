@@ -5,6 +5,7 @@ onready var bullet_container = get_node("Bullets")
 onready var gun_node = get_node("Guns")
 onready var recovery_timer: Timer = $RecoveryTimer
 onready var sprite = $Sprite
+onready var powerup_sfx: AudioStreamPlayer2D = $PowerupSFX
 
 export(PackedScene) var command_reference = load("res://Scenes/Command/Command.tscn")
 export(float, 0, 500, .5) var speed = 200
@@ -23,22 +24,22 @@ signal damage_taken()
 func _ready():
 	init_controls()
 	init_recovery_timer()
-	
+
 	#disable physics process after creation
 	#so user can't move the spaceship
 	self.set_physics_process(false)
-	
+
 	viewport_size = get_viewport_rect().size
 
 
 func _physics_process(d):
 	if(current_state == State.DEAD):
 		return
-		
+
 	handle_movement(d)
 	handle_shooting(d)
-	
-	
+
+
 func _process(d):
 	match current_state:
 		State.RECOVERY:
@@ -46,12 +47,12 @@ func _process(d):
 			self.get_node("Sprite").get_material().set_shader_param("whitening", uniform_periodic)
 		State.IDLE:
 			self.get_node("Sprite").get_material().set_shader_param("whitening", 0)
-	
-	
+
+
 func _on_Recovery_Timer_timeout():
 	current_state = State.IDLE
-	
-	
+
+
 func _on_game_over():
 	current_state = State.DEAD
 	$ExplosionParticleSystem/ExplosionSound.play()
@@ -59,46 +60,46 @@ func _on_game_over():
 	$Sprite.visible = false
 	yield(get_tree().create_timer(2.0), "timeout")
 	SceneManager.goto_scene("res://Scenes/Gameplay/Gameover/Gameover.tscn")
-	
-	
+
+
 func handle_collision():
 	if(current_state == State.IDLE):
 		emit_signal("damage_taken")
 		recovery_timer.start()
 		current_state = State.RECOVERY
-	
-	
+
+
 func init_controls():
 	var w_button = command_reference.instance()
 	w_button.command("W", KEY_W, "key")
 	$Inputs.add_child(w_button)
-	
+
 	var a_button = command_reference.instance()
 	a_button.command("A", KEY_A, "key")
 	$Inputs.add_child(a_button)
-	
+
 	var s_button = command_reference.instance()
 	s_button.command("S", KEY_S, "key")
 	$Inputs.add_child(s_button)
-	
+
 	var d_button = command_reference.instance()
 	d_button.command("D", KEY_D, "key")
 	$Inputs.add_child(d_button)
-	
+
 	var j_button = command_reference.instance()
 	j_button.command("J", KEY_J, "key")
 	$Inputs.add_child(j_button)
-	
+
 	var x_button = command_reference.instance()
 	x_button.command("X", KEY_X, "key")
 	$Inputs.add_child(x_button)
-	
-	 
+
+
 func init_recovery_timer():
 	recovery_timer.set_one_shot(true)
 	recovery_timer.set_wait_time(recovery_time)
-	
-	
+
+
 func handle_damage_visual_effects():
 	match current_state:
 		State.RECOVERY:
@@ -106,8 +107,8 @@ func handle_damage_visual_effects():
 			self.get_node("Sprite").get_material().set_shader_param("whitening", toWhite)
 		State.IDLE:
 			self.get_node("Sprite").get_material().set_shader_param("whitening", 0)
-	
-	
+
+
 func handle_movement(d):
 	var direction = Vector2(0, 0)
 	if get_command("W").isPressed():
@@ -118,7 +119,7 @@ func handle_movement(d):
 		direction.x =- 1
 	if get_command("D").isPressed():
 		direction.x =+ 1
-	
+
 	move_and_collide(direction * speed * d)
 	clamp_position_to_viewport_size()
 
@@ -131,8 +132,8 @@ func handle_shooting(d):
 		fire(d)
 	else:
 		decrease_next_shot_remaining_time(d)
-		
-		
+
+
 func fire(d):
 	if next_shot <= 0:
 		var bullet = bullet_scene.instance()
@@ -142,18 +143,21 @@ func fire(d):
 		$AudioStreamPlayer2D.play()
 	else:
 		decrease_next_shot_remaining_time(d)
-	
-	
+
+
 func decrease_next_shot_remaining_time(d):
 	next_shot -= d
-	
-	
+
+
 func is_idle() -> bool:
 	return true if current_state == State.IDLE else false
-	
+
 
 func get_command(ID):
 	for cmd in $Inputs.get_children():
 		if cmd.ID == ID:
 			return cmd
-			
+
+func play_powerup_sfx():
+	if powerup_sfx:
+		powerup_sfx.play()
