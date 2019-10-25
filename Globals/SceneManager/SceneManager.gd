@@ -9,12 +9,15 @@ func _ready():
 func goto_scene(path: String, params = null):
 	call_deferred("_deferred_goto_scene", path, params)
 
+func reload_current_scene():
+	get_tree().reload_current_scene()
+
 func _deferred_goto_scene(path: String, params = null):
 	current_scene.free()
 	var s = ResourceLoader.load(path)
 	current_scene = s.instance()
 	get_tree().get_root().add_child(current_scene)
 	get_tree().set_current_scene(current_scene)
-	
+
 	if params:
 		current_scene.init(params)
