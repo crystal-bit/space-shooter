@@ -43,12 +43,12 @@ func spawnEnemy() -> void:
 			enemy.pattern = 2
 		get_tree().root.add_child(enemy)
 
-	
+
 func set_spawn_position():
 	self.global_position = Vector2(
-		get_viewport().size.x + 100, 
+		get_viewport().size.x + 100,
 		get_viewport().size.y * (0.2 * (randi() % 4 + 1))
 	)
 	spawnEnemy()
-	
+
 

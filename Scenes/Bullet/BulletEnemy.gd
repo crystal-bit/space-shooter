@@ -13,9 +13,8 @@ func _on_Area2D_body_entered(collider):
 		if collider.is_idle():
 			collider.handle_collision()
 			queue_free()
-			
-			
+
+
 func check_if_on_screen():
 	if not get_node("VisibilityNotifier2D").is_on_screen():
 		queue_free()
-	
