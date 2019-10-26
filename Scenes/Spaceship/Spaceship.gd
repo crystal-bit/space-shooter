@@ -54,7 +54,6 @@ func _on_Recovery_Timer_timeout():
 
 func _on_game_over():
 	lives = 0 
-	print_debug("here")
 	current_state = State.DEAD
 	$ExplosionParticleSystem/ExplosionSound.play()
 	$ExplosionParticleSystem.start_emission()
