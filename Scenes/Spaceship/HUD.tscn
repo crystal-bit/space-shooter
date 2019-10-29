@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/Spaceship/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/hud/spr_life_icon.png" type="Texture" id=2]
 
-[node name="HUD" type="Node2D"]
+[node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
 
 [node name="Health_Icon" type="Sprite" parent="."]

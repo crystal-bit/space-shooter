@@ -7,6 +7,7 @@ onready var recovery_timer: Timer = $RecoveryTimer
 onready var powerup_timer: Timer = $PowerupTimer
 onready var sprite = $Sprite
 onready var powerup_sfx: AudioStreamPlayer2D = $PowerupSFX
+onready var guns_position = $FirePosition
 
 export(PackedScene) var command_reference = load("res://Scenes/Command/Command.tscn")
 export(float, 0, 500, .5) var speed = 200
@@ -17,7 +18,6 @@ enum State {IDLE, RECOVERY, DEAD}
 export(State) var current_state = State.IDLE
 
 var next_shot = 0
-var guns_position = Vector2(100,35)
 var viewport_size
 var modified_fire_rate: float = fire_rate
 
@@ -141,7 +141,7 @@ func handle_shooting(d):
 func fire(d):
 	if next_shot <= 0:
 		var bullet = bullet_scene.instance()
-		bullet.position = self.get_position() + guns_position
+		bullet.position =  guns_position.global_position
 		bullet_container.add_child(bullet)
 		next_shot = modified_fire_rate
 		$AudioStreamPlayer2D.play()
