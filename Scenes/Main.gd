@@ -1,6 +1,10 @@
 extends Node2D
 
 
+func _ready():
+	$Tween.interpolate_property($AudioStreamPlayer, "volume_db", -40, 0, 1.00, Tween.TRANS_LINEAR, Tween.EASE_OUT, 0)
+	$Tween.start()
+
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "spaceshipArrives":
 		$Spaceship/Sprite/AnimationPlayer.play("idle")

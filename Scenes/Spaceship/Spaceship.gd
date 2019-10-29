@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal gameOver()
+
 onready var bullet_scene = preload("res://Scenes/Bullet/Bullet.tscn")
 onready var bullet_container = get_node("Bullets")
 onready var gun_node = get_node("Guns")
@@ -62,6 +64,7 @@ func _on_game_over():
 	$ExplosionParticleSystem/ExplosionSound.play()
 	$ExplosionParticleSystem.start_emission()
 	$Sprite.visible = false
+	emit_signal("gameOver")
 	yield(get_tree().create_timer(2.0), "timeout")
 	SceneManager.goto_scene("res://Scenes/Gameplay/Gameover/Gameover.tscn")
 
@@ -69,6 +72,7 @@ func _on_game_over():
 func handle_collision():
 	if(current_state == State.IDLE):
 		emit_signal("damage_taken")
+		$HitSound.play()
 		recovery_timer.start()
 		current_state = State.RECOVERY
 

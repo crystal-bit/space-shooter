@@ -97,8 +97,12 @@ valign = 1
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 autoplay = true
+volume_db = -80.0
 
 [node name="HUD" parent="." instance=ExtResource( 8 )]
+
+[node name="Tween" type="Tween" parent="."]
+
 [connection signal="damage_taken" from="Spaceship" to="HUD" method="_on_Spaceship_damage_taken"]
 [connection signal="damage_taken" from="Spaceship" to="ShakeCamera" method="_on_Spaceship_damage_taken"]
 [connection signal="game_over" from="HUD" to="ShakeCamera" method="_on_HUD_game_over"]
