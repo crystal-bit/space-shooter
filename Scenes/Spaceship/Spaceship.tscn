@@ -1,14 +1,14 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scenes/Spaceship/Spaceship.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Shaders/Spaceship.tres" type="Material" id=2]
 [ext_resource path="res://Assets/warped city files/sprites/vehicles/spaceship-unit.png" type="Texture" id=3]
 [ext_resource path="res://Sounds/laser_shoot.wav" type="AudioStream" id=4]
 [ext_resource path="res://Sounds/powerup.wav" type="AudioStream" id=5]
-[ext_resource path="res://Sounds/hit.wav" type="AudioStream" id=9]
 [ext_resource path="res://Scenes/Spaceship/ExplosionParticleSystem.gd" type="Script" id=6]
 [ext_resource path="res://Particles/textureParticles1.png" type="Texture" id=7]
 [ext_resource path="res://Sounds/explosion.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/hit.wav" type="AudioStream" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
@@ -173,10 +173,6 @@ stream = ExtResource( 4 )
 stream = ExtResource( 5 )
 
 [node name="ExplosionParticleSystem" type="Node2D" parent="."]
-editor/display_folded = true
-
-[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 9 )
 script = ExtResource( 6 )
 
 [node name="ExplosionParticles" type="Particles2D" parent="ExplosionParticleSystem"]
@@ -219,6 +215,10 @@ texture = ExtResource( 7 )
 
 [node name="ExplosionSound" type="AudioStreamPlayer2D" parent="ExplosionParticleSystem"]
 stream = ExtResource( 8 )
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+script = ExtResource( 6 )
 [connection signal="damage_taken" from="." to="." method="_on_Spaceship_damage_taken"]
 [connection signal="timeout" from="RecoveryTimer" to="." method="_on_Recovery_Timer_timeout"]
 [connection signal="timeout" from="PowerupTimer" to="." method="_on_PowerupTimer_timeout"]
