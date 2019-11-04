@@ -18,6 +18,7 @@ export(float, 0, 10, .5) var recovery_time = 3
 
 enum State {IDLE, RECOVERY, DEAD}
 export(State) var current_state = State.IDLE
+var lives = 5
 
 var next_shot = 0
 var viewport_size
@@ -56,10 +57,13 @@ func _process(d):
 func _on_Recovery_Timer_timeout():
 	current_state = State.IDLE
 
+
 func _on_PowerupTimer_timeout() -> void:
 	modified_fire_rate = fire_rate
 
+	
 func _on_game_over():
+	lives = 0 
 	current_state = State.DEAD
 	$ExplosionParticleSystem/ExplosionSound.play()
 	$ExplosionParticleSystem.start_emission()
@@ -70,7 +74,8 @@ func _on_game_over():
 
 
 func handle_collision():
-	if(current_state == State.IDLE):
+	if(lives != 0 && current_state == State.IDLE):
+		lives=lives-1
 		emit_signal("damage_taken")
 		$HitSound.play()
 		recovery_timer.start()
@@ -118,20 +123,21 @@ func handle_damage_visual_effects():
 
 
 func handle_movement(d):
-	var direction = Vector2(0, 0)
-	if get_command("W").isPressed():
-		direction.y =- 1
-	if get_command("S").isPressed():
-		direction.y =+ 1
-	if get_command("A").isPressed():
-		direction.x =- 1
-	if get_command("D").isPressed():
-		direction.x =+ 1
-
-	move_and_collide(direction * speed * d)
-	clamp_position_to_viewport_size()
+	if lives != 0:
+		var direction = Vector2(0, 0)
+		if get_command("W").isPressed():
+			direction.y =- 1
+		if get_command("S").isPressed():
+			direction.y =+ 1
+		if get_command("A").isPressed():
+			direction.x =- 1
+		if get_command("D").isPressed():
+			direction.x =+ 1
+		move_and_collide(direction * speed * d)
+		clamp_position_to_viewport_size()
 
 func clamp_position_to_viewport_size():
+
 	position.x = clamp(position.x, 0, viewport_size.x)
 	position.y = clamp(position.y, 0, viewport_size.y)
 
