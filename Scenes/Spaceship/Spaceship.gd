@@ -18,7 +18,6 @@ export(float, 0, 10, .5) var recovery_time = 3
 
 enum State {IDLE, RECOVERY, DEAD}
 export(State) var current_state = State.IDLE
-var lives = 5
 
 var next_shot = 0
 var viewport_size
@@ -63,7 +62,6 @@ func _on_PowerupTimer_timeout() -> void:
 
 	
 func _on_game_over():
-	lives = 0 
 	current_state = State.DEAD
 	$ExplosionParticleSystem/ExplosionSound.play()
 	$ExplosionParticleSystem.start_emission()
@@ -74,8 +72,7 @@ func _on_game_over():
 
 
 func handle_collision():
-	if(lives != 0 && current_state == State.IDLE):
-		lives=lives-1
+	if(current_state == State.IDLE):
 		$HitSound.play()
 		recovery_timer.start()
 		current_state = State.RECOVERY
@@ -123,7 +120,7 @@ func handle_damage_visual_effects():
 
 
 func handle_movement(d):
-	if lives != 0:
+	if current_state != State.DEAD:
 		var direction = Vector2(0, 0)
 		if get_command("W").isPressed():
 			direction.y =- 1
