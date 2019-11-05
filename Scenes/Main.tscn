@@ -110,8 +110,8 @@ volume_db = -40.0
 autoplay = true
 
 [node name="Tween" type="Tween" parent="."]
-[connection signal="transition_updated" from="ScrollingBackground" to="ScrollingFarBuildings" method="_on_ScrollingBackground_transition_updated"]
 [connection signal="transition_updated" from="ScrollingBackground" to="ScrollingBuildings" method="_on_ScrollingBackground_transition_updated"]
+[connection signal="transition_updated" from="ScrollingBackground" to="ScrollingFarBuildings" method="_on_ScrollingBackground_transition_updated"]
 [connection signal="transition_updated" from="ScrollingBackground" to="." method="_on_ScrollingBackground_transition_updated"]
 [connection signal="transition_updated" from="ScrollingBackground" to="UILayer/MainButtons" method="_on_ScrollingBackground_transition_updated"]
 [connection signal="optionsButtonClicked" from="UILayer/MainButtons" to="UILayer" method="_on_MainButtons_optionsButtonClicked"]
