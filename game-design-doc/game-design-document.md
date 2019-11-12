@@ -109,6 +109,15 @@ The player can collect a powerup simply by touching it.
 
 With this powerup, the bullet is larger and deals more damage to enemies.
 
+# Enemies behavior
+
+Here are the behaviors of each type of enemy, which for now will be named "Enemy#" to simplify the development of the following dynamics in the project.
+
+In the diagrams the colors of the lines and symbols are as follows:
+- Green Line: Entry Path
+- Red Line: Exit path
+- Symbol "X": Stop position for X seconds
+
 ## Enemy spawn
 
 Enemies can spawn in different ways. The type of spawn depdens on the enemy.
@@ -129,13 +138,9 @@ TODO
 
 ## Enemy 1
 
-### Spawn
+### Spawn & Movements
 
-TODO
-
-### Movement
-
-TODO
+![Enemy1_spawn diagram](./img/enemy1-spawn-diagram.png)
 
 ### Attack: Fire Bullet
 
