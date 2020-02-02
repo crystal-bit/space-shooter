@@ -18,7 +18,6 @@ export(float, 0, 10, .5) var recovery_time = 3
 
 enum State {IDLE, RECOVERY, DEAD}
 export(State) var current_state = State.IDLE
-var lives = 5
 
 var next_shot = 0
 var viewport_size
@@ -63,19 +62,18 @@ func _on_PowerupTimer_timeout() -> void:
 
 	
 func _on_game_over():
-	lives = 0 
 	current_state = State.DEAD
 	$ExplosionParticleSystem/ExplosionSound.play()
 	$ExplosionParticleSystem.start_emission()
 	$Sprite.visible = false
 	emit_signal("gameOver")
 	yield(get_tree().create_timer(2.0), "timeout")
+	FinalScore.set_finalscore(get_parent().get_node("Score").text)
 	SceneManager.goto_scene("res://Scenes/Gameplay/Gameover/Gameover.tscn")
 
 
 func handle_collision():
-	if(lives != 0 && current_state == State.IDLE):
-		lives=lives-1
+	if(get_lives() != 0 && current_state == State.IDLE):
 		emit_signal("damage_taken")
 		$HitSound.play()
 		recovery_timer.start()
@@ -123,7 +121,7 @@ func handle_damage_visual_effects():
 
 
 func handle_movement(d):
-	if lives != 0:
+	if get_lives() != 0:
 		var direction = Vector2(0, 0)
 		if get_command("W").isPressed():
 			direction.y =- 1
@@ -176,3 +174,6 @@ func activate_powerup():
 	powerup_timer.start()
 	powerup_sfx.play()
 	modified_fire_rate = 0.55 * fire_rate
+
+func get_lives():
+	return get_parent().get_node("HUD").current_life_count+1
