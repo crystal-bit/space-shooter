@@ -72,7 +72,7 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="SkylineA3" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 256, -0.828 )
+position = Vector2( 256, 0 )
 texture = ExtResource( 2 )
 centered = false
 
