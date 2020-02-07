@@ -23,7 +23,6 @@ config/icon="res://icon.png"
 
 SceneManager="*res://Globals/SceneManager/SceneManager.gd"
 AudioManager="*res://Globals/AudioManager/AudioManager.gd"
-FinalScore="*res://Globals/FinalScore/FinalScore.gd"
 
 [display]
 

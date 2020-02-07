@@ -101,6 +101,9 @@ margin_top = -691.092
 margin_right = 144.0
 margin_bottom = 64.0
 custom_constants/separation = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="RetryButton" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
 margin_right = 128.0

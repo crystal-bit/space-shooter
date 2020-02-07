@@ -66,10 +66,7 @@ func _on_game_over():
 	$ExplosionParticleSystem/ExplosionSound.play()
 	$ExplosionParticleSystem.start_emission()
 	$Sprite.visible = false
-	emit_signal("gameOver")
-	yield(get_tree().create_timer(2.0), "timeout")
-	FinalScore.set_finalscore(get_parent().get_node("Score").text)
-	SceneManager.goto_scene("res://Scenes/Gameplay/Gameover/Gameover.tscn")
+	emit_signal("gameOver") 
 
 
 func handle_collision():
@@ -177,3 +174,5 @@ func activate_powerup():
 
 func get_lives():
 	return get_parent().get_node("HUD").current_life_count+1
+
+
