@@ -3,13 +3,16 @@ extends KinematicBody2D
 signal gameOver()
 
 onready var bullet_scene = preload("res://Scenes/Bullet/Bullet.tscn")
+onready var bullet_powerup=preload("res://Assets/warped city files/sprites/misc/shot/powerupbullet.png")
 onready var bullet_container = get_node("Bullets")
 onready var gun_node = get_node("Guns")
 onready var recovery_timer: Timer = $RecoveryTimer
 onready var powerup_timer: Timer = $PowerupTimer
+onready var bulletpowerup_timer:Timer=$BulletPowerupTimer
 onready var sprite = $Sprite
 onready var powerup_sfx: AudioStreamPlayer2D = $PowerupSFX
 onready var guns_position = $FirePosition
+
 
 export(PackedScene) var command_reference = load("res://Scenes/Command/Command.tscn")
 export(float, 0, 500, .5) var speed = 200
@@ -22,6 +25,7 @@ export(State) var current_state = State.IDLE
 var next_shot = 0
 var viewport_size
 var modified_fire_rate: float = fire_rate
+var bulletBoost=1
 
 signal damage_taken()
 
@@ -60,7 +64,11 @@ func _on_Recovery_Timer_timeout():
 func _on_PowerupTimer_timeout() -> void:
 	modified_fire_rate = fire_rate
 
-	
+
+func _on_BulletPowerupTimer_timeout():
+	bulletBoost=1
+
+
 func _on_game_over():
 	current_state = State.DEAD
 	$ExplosionParticleSystem/ExplosionSound.play()
@@ -146,7 +154,11 @@ func handle_shooting(d):
 func fire(d):
 	if next_shot <= 0:
 		var bullet = bullet_scene.instance()
+		bullet.damage*=bulletBoost
 		bullet.position =  guns_position.global_position
+		if(bulletBoost==2):
+			bullet.get_node("Sprite").texture=bullet_powerup
+			bullet.position.y+=8  #for being more accurate to gun's position
 		bullet_container.add_child(bullet)
 		next_shot = modified_fire_rate
 		$AudioStreamPlayer2D.play()
@@ -167,10 +179,15 @@ func get_command(ID):
 		if cmd.ID == ID:
 			return cmd
 
-func activate_powerup():
-	powerup_timer.start()
+func activate_powerup(type):
+	if type==1:
+		modified_fire_rate = 0.55 * fire_rate
+		powerup_timer.start()
+	elif type==2:
+		bulletBoost=2
+		bulletpowerup_timer.start()
 	powerup_sfx.play()
-	modified_fire_rate = 0.55 * fire_rate
+
 
 func get_lives():
 	return get_parent().get_node("HUD").current_life_count+1

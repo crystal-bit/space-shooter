@@ -32,12 +32,22 @@ func _on_Enemy1_defeated():
 	# Add here explosion animation
 	rng.randomize()
 	var chance = rng.randi_range(1, 10)
-	if chance <= 2:
+	if chance <=2:
 		# Should be added a level group in case there will be more than 1 level
 		var power = powerupScene.instance()
 		#power.position = self.get_position()
 		power.position = self.global_position
-		power.scale = Vector2(1, 1)
+		power.scale = Vector2(1,1)
+		power.powerup_type=1
+		power.set_Animation()
+		get_parent().add_child(power)
+	elif chance==3:
+		#10% chance for this powerup
+		var power = powerupScene.instance()
+		power.position = self.global_position
+		power.scale = Vector2(0.6,0.6)
+		power.powerup_type=2
+		power.set_Animation()
 		get_parent().add_child(power)
 		
 	queue_free()
@@ -98,3 +108,4 @@ func create_explosion_anim():
 	explosionAnim.scale = Vector2(rand_range(1,2),rand_range(1,2))
 	explosionAnim.start_anim()
 	get_parent().add_child(explosionAnim)
+
