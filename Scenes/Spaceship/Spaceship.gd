@@ -187,7 +187,6 @@ func activate_powerup(type):
 		bulletBoost=2
 		bulletpowerup_timer.start()
 	powerup_sfx.play()
-  
 
 
 func get_lives():
