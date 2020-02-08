@@ -41,13 +41,11 @@ position = Vector2( 204.327, 350.195 )
 scale = Vector2( 1.6, 1.6 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-editor/display_folded = true
 scale = Vector2( 3.2, 3.2 )
 transform = Transform2D( 3.2, 0, 0, 3.2, 0, 0 )
 scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-editor/display_folded = true
 motion_mirroring = Vector2( 512, 0 )
 
 [node name="SkylineA" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
@@ -76,7 +74,6 @@ anims/move = SubResource( 1 )
 [node name="ScoreHandler" parent="." instance=ExtResource( 6 )]
 
 [node name="Score" type="Label" parent="."]
-editor/display_folded = true
 margin_left = 1114.0
 margin_top = 70.0
 margin_right = 1261.0
@@ -84,6 +81,9 @@ margin_bottom = 101.0
 text = "0"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Multiplier" type="Label" parent="Score"]
 margin_left = -54.0
@@ -93,17 +93,19 @@ margin_bottom = 24.0
 text = "x1"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-autoplay = true
 volume_db = -80.0
+autoplay = true
 
 [node name="HUD" parent="." instance=ExtResource( 8 )]
 
 [node name="Tween" type="Tween" parent="."]
-
 [connection signal="damage_taken" from="Spaceship" to="HUD" method="_on_Spaceship_damage_taken"]
 [connection signal="damage_taken" from="Spaceship" to="ShakeCamera" method="_on_Spaceship_damage_taken"]
-[connection signal="game_over" from="HUD" to="ShakeCamera" method="_on_HUD_game_over"]
 [connection signal="game_over" from="HUD" to="Spaceship" method="_on_game_over"]
+[connection signal="game_over" from="HUD" to="ShakeCamera" method="_on_HUD_game_over"]

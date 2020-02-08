@@ -29,3 +29,11 @@ func showMultiplier(multiplier):
 func fadeOutBackgroundMusic():
 	$Tween.interpolate_property($BackgroundMusic, "volume_db", 0, -80, 5.00, Tween.TRANS_SINE, Tween.EASE_IN, 0)
 	$Tween.start()
+	gameOver()
+
+
+func gameOver():
+	yield(get_tree().create_timer(2.0), "timeout")
+	SceneManager.goto_scene("res://Scenes/Gameplay/Gameover/Gameover.tscn",$Score.text)
+
+
