@@ -10,6 +10,19 @@
 
 It's intended for people who want to learn [Godot](https://godotengine.org) game programming in a collaborative way.
 
+## Project status
+
+Feel free to open Pull Requests and issues.
+
+But keep in mind that Space Shooter is not in acive development; it was intended as a 1-month project.  
+
+### "Why do you accept PR if the project is not in development?"
+
+It's useful for who wants to contribute to a welcoming project.  
+
+Eg: after the Hacktoberfest finished, a student asked me to work on this project as a University assignment.  
+I'm more than happy to spend time reviewing PRs and issues if someone can benefit from it. 
+
 ## Pre-requisites
 
 * Godot > 3.0.6
