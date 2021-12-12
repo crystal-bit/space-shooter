@@ -6,3 +6,9 @@ export_presets.cfg
 # Mono-specific ignores
 .mono/
 
+# Mac
+.DS_Store
+
+/build
+/builds
+/android/
