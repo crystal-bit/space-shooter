@@ -9,7 +9,7 @@ func _ready():
 	#once the level is ready
 	$Spaceship.set_physics_process(true)
 	$Spaceship.connect("gameOver", self, "fadeOutBackgroundMusic")
-	
+
 	$Tween.interpolate_property($BackgroundMusic, "volume_db", -80, 0, 1.50, Tween.TRANS_SINE, Tween.EASE_OUT, 0)
 	$Tween.start()
 

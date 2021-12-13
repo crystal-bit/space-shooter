@@ -133,9 +133,7 @@ linear_accel = 1000.0
 scale = 0.9
 scale_curve = SubResource( 18 )
 
-[node name="Spaceship" type="KinematicBody2D" groups=[
-"Player",
-]]
+[node name="Spaceship" type="KinematicBody2D" groups=["Player"]]
 position = Vector2( 110.823, 58.3905 )
 collision_layer = 9
 script = ExtResource( 1 )
@@ -148,8 +146,6 @@ hframes = 4
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 anims/idle = SubResource( 1 )
 
-[node name="Inputs" type="Node" parent="."]
-
 [node name="Bullets" type="Node" parent="."]
 
 [node name="FirePosition" type="Position2D" parent="."]
@@ -157,19 +153,6 @@ position = Vector2( 55, 20 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
-
-[node name="RecoveryTimer" type="Timer" parent="."]
-one_shot = true
-
-[node name="PowerupTimer" type="Timer" parent="."]
-wait_time = 15.0
-one_shot = true
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 4 )
-
-[node name="PowerupSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 5 )
 
 [node name="ExplosionParticleSystem" type="Node2D" parent="."]
 script = ExtResource( 6 )
@@ -215,12 +198,26 @@ texture = ExtResource( 7 )
 [node name="ExplosionSound" type="AudioStreamPlayer2D" parent="ExplosionParticleSystem"]
 stream = ExtResource( 8 )
 
+[node name="RecoveryTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PowerupTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[node name="BulletPowerupTimer" type="Timer" parent="."]
+wait_time = 6.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
+[node name="PowerupSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
 script = ExtResource( 6 )
 
-[node name="BulletPowerupTimer" type="Timer" parent="."]
-wait_time = 6.0
 [connection signal="damage_taken" from="." to="." method="_on_Spaceship_damage_taken"]
 [connection signal="timeout" from="RecoveryTimer" to="." method="_on_Recovery_Timer_timeout"]
 [connection signal="timeout" from="PowerupTimer" to="." method="_on_PowerupTimer_timeout"]

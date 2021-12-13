@@ -8,14 +8,12 @@ onready var bullet_container = get_node("Bullets")
 onready var gun_node = get_node("Guns")
 onready var recovery_timer: Timer = $RecoveryTimer
 onready var powerup_timer: Timer = $PowerupTimer
-onready var bulletpowerup_timer:Timer=$BulletPowerupTimer
+onready var bulletpowerup_timer: Timer=$BulletPowerupTimer
 onready var sprite = $Sprite
 onready var powerup_sfx: AudioStreamPlayer2D = $PowerupSFX
 onready var guns_position = $FirePosition
 
-
-export(PackedScene) var command_reference = load("res://Scenes/Command/Command.tscn")
-export(float, 0, 500, .5) var speed = 200
+export(float, 0, 500, .5) var speed = 300
 export(float, 0, 2, .1) var fire_rate = 0.3
 export(float, 0, 10, .5) var recovery_time = 3
 
@@ -27,23 +25,22 @@ var viewport_size
 var modified_fire_rate: float = fire_rate
 var bulletBoost=1
 
+
 signal damage_taken()
+
 
 func _ready():
 	init_controls()
 	init_recovery_timer()
-
 	#disable physics process after creation
 	#so user can't move the spaceship
-	self.set_physics_process(false)
-
+	set_physics_process(false)
 	viewport_size = get_viewport_rect().size
 
 
 func _physics_process(d):
 	if(current_state == State.DEAD):
 		return
-
 	handle_movement(d)
 	handle_shooting(d)
 
@@ -74,7 +71,8 @@ func _on_game_over():
 	$ExplosionParticleSystem/ExplosionSound.play()
 	$ExplosionParticleSystem.start_emission()
 	$Sprite.visible = false
-	emit_signal("gameOver") 
+	emit_signal("gameOver")
+	set_physics_process(false)
 
 
 func handle_collision():
@@ -86,29 +84,14 @@ func handle_collision():
 
 
 func init_controls():
-	var w_button = command_reference.instance()
-	w_button.command("W", KEY_W, "key")
-	$Inputs.add_child(w_button)
-
-	var a_button = command_reference.instance()
-	a_button.command("A", KEY_A, "key")
-	$Inputs.add_child(a_button)
-
-	var s_button = command_reference.instance()
-	s_button.command("S", KEY_S, "key")
-	$Inputs.add_child(s_button)
-
-	var d_button = command_reference.instance()
-	d_button.command("D", KEY_D, "key")
-	$Inputs.add_child(d_button)
-
-	var j_button = command_reference.instance()
-	j_button.command("J", KEY_J, "key")
-	$Inputs.add_child(j_button)
-
-	var x_button = command_reference.instance()
-	x_button.command("X", KEY_X, "key")
-	$Inputs.add_child(x_button)
+	pass
+#	var j_button = command_reference.instance()
+#	j_button.command("J", KEY_J, "key")
+#	$Inputs.add_child(j_button)
+#
+#	var x_button = command_reference.instance()
+#	x_button.command("X", KEY_X, "key")
+#	$Inputs.add_child(x_button)
 
 
 func init_recovery_timer():
@@ -126,26 +109,28 @@ func handle_damage_visual_effects():
 
 
 func handle_movement(d):
-	if get_lives() != 0:
-		var direction = Vector2(0, 0)
-		if get_command("W").isPressed():
-			direction.y =- 1
-		if get_command("S").isPressed():
-			direction.y =+ 1
-		if get_command("A").isPressed():
-			direction.x =- 1
-		if get_command("D").isPressed():
-			direction.x =+ 1
-		move_and_collide(direction * speed * d)
-		clamp_position_to_viewport_size()
+	var direction = Vector2(0, 0)
+	# keyboard input
+	if Input.is_action_pressed("ui_up"):
+		direction.y =- 1
+	if Input.is_action_pressed("ui_down"):
+		direction.y =+ 1
+	if Input.is_action_pressed("ui_left"):
+		direction.x =- 1
+	if Input.is_action_pressed("ui_right"):
+		direction.x =+ 1
+	# touch input
+	move_and_collide(direction * speed * d)
+	clamp_position_to_viewport_size()
+
 
 func clamp_position_to_viewport_size():
-
 	position.x = clamp(position.x, 0, viewport_size.x)
 	position.y = clamp(position.y, 0, viewport_size.y)
 
+
 func handle_shooting(d):
-	if get_command("J").isPressed():
+	if Input.is_action_pressed("fire"):
 		fire(d)
 	else:
 		decrease_next_shot_remaining_time(d)
@@ -173,11 +158,6 @@ func decrease_next_shot_remaining_time(d):
 func is_idle() -> bool:
 	return true if current_state == State.IDLE else false
 
-
-func get_command(ID):
-	for cmd in $Inputs.get_children():
-		if cmd.ID == ID:
-			return cmd
 
 func activate_powerup(type):
 	if type==1:

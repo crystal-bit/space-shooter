@@ -23,19 +23,10 @@ func _ready() -> void:
 	place_health_icons()
 
 
-# warning-ignore:unused_argument
-func _process(delta) -> void:
-	if Input.is_action_just_pressed("ui_left"):
-		remove_life()
-	elif Input.is_action_just_pressed("ui_right"):
-		add_life()
-	pass
-
-
 func _on_Spaceship_damage_taken():
 	remove_life()
-	
-	
+
+
 func remove_life() -> void:
 	if current_life_count == 0:
 		#we just lost health, on our last life. It's game over
@@ -51,7 +42,7 @@ func add_life() -> void:
 		pass
 	else:
 		current_life_count = current_life_count + 1
-		life_icons.get(current_life_count).visible = true	
+		life_icons.get(current_life_count).visible = true
 
 
 func place_health_icons() -> void:
